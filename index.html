@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
+    <title>B.I.A | Home</title>
+
+    <!-- Customized CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Custom helpers -->
+  <link rel="stylesheet" type="text/css" href="css/helpers.css">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- Import Bootstrap Icon Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center; }
+ 
+        .carousel .carousel-item img {
+            position: relative;
+            top: 20px;
+        }
+
+        .caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 250px 0;
+            
+            text-align: center; 
+
+        }
+
+        /* Custom card styling */
+        .card {
+            border-radius: 1em !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+            transition: all 0.3s ease !important;
+        }
+    </style>
+</head>
+<body>
+<header>
+<!-- ================= NAVBAR ================= -->
+    <nav class="green nav nav-wrapper">
+        <div class="contain">
+
+        <a href="#" class="brand-logo"><img src="assets/images/bia-logo.jpg" alt="bia_logo" id="navImg"></a>
+
+        <!-- Mobile menu icon --> 
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
+            <i class="bi bi-list"></i>
+        </a>
+
+        <!-- Desktop nav -->
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#"><i class="bi bi-house-door"></i>Home</a></li>
+            <li><a href="#"><i class="bi bi-clipboard-data"></i>Results</a></li>
+            <li><a href="#"><i class="bi bi-journal-bookmark"></i>Exams</a></li>
+            <li><a href="#"><i class="bi bi-images"></i>Gallery</a></li>
+            <li><a href="#"><i class="bi bi-pencil-square"></i>Apply</a></li>
+        </ul>
+
+    </div>
+</nav>
+</header>
+
+<main>
+<!--===BASE DESIGN===-->
+    <!-- CAROUSEL -->
+    <section class="carousel carousel-slider">
+        <a class="carousel-item">
+            <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/v1783093162/welcome.png" 
+                 alt="First Logo of B.I.A"
+                 width="400"
+                 height="300">        
+        </a>
+        <a class="carousel-item">
+            <img src="assets/images/admission.jpg"
+                 alt="Admission image"
+                 height="400">
+            <h2 class="caption">2025/2026 Admissions are Open</h2>
+        </a>
+        <a class="carousel-item">
+            <img src="assets/images/bus.jpg"
+                 alt="School bus image"
+                 height="400">
+            <h2 class="caption">Future Innovation</h2>
+        </a>
+        <a class="carousel-item">
+            <img src="assets/images/bage-1.jpg" 
+                 alt="School bag 1"
+                 height="400">
+            <h2 class="caption">Future Innovation</h2>
+        </a>
+        <a class="carousel-item">
+            <img src="assets/images/bage-2.jpg"
+                 alt="School bag 2"
+                 height="400">
+            <h2 class="caption">Future Innovation</h2>
+        </a>
+        <a class="carousel-item">
+            <img src="assets/images/assembly.jpg"
+                 alt="Students at assembly"
+                 height="400">
+            <h2 class="caption">Students at Assembly</h2>
+        </a>
+    </section>
+
+    <br>
+
+    <!-- CARDS -->
+    <div class="row">
+
+        <div class="col s12 m6 l4 animate">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Welcome</span>
+                    <p>Official school website introduction.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m6 l4 animate">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Admissions</span>
+                    <p>Admissions open for 2025/2026 academic year.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m6 l4 animate">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Subjects</span>
+                    <p>Core and Elective subjects including Arabic Language are offered.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <aside>
+        <!-- ================= MOBILE SIDENAV ================= -->
+        <ul class="sidenav green" id="mobile-nav" style="margin-top: 45px;">
+            <div class="sidenav-header white-text center-align">
+                <h5>Quick Access</h5>
+                <hr>
+            </div>
+            <li class="nav-item active white" style="
+
+                    font-weight: 600;
+                    border-left: 5px solid #056313;
+                    background: #ecebe6 !important;
+                    ">
+                    <a href="index.html" class="nav-link  #04500e !important;" style="color: #04500e !important;">
+                        <i class="bi bi-house-door medium-icon" style="margin:10px 15px 5px 0; height: 30px;"></i>
+                        <span>Home</span>
+                    </a>
+                </li> 
+                <li class="nav-item">
+                    <a href="#results" class="nav-link" >
+                        <i class="bi bi-clipboard-data medium-icon" style="margin:10px 15px 5px 0; height: 30px;"></i>
+                        <span>Results</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#exams" class="nav-link">
+                        <i class="bi bi-journal-bookmark medium-icon" style="margin:10px 15px 5px 0; height: 30px;"></i>
+                        <span>Exams</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">
+                        <i class="bi bi-images medium-icon" style="margin:10px 15px 5px 0; height: 30px;"></i>
+                        <span>Gallery</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/audios.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="nav-link">
+
+                        <i class="bi bi-headset medium-icon" 
+                           style="margin:10px 15px 5px 0; height: 30px;"></i>
+                        <span>Media</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#apply" class="nav-link">
+                        <i class="bi bi-pencil-square medium-icon" style="margin:10px 15px 5px 0; height: 30px;"></i>
+                        <span>Apply Online</span>
+                    </a>
+                </li>
+        </ul>
+    </aside>
+</main>
+
+<footer class="page-footer green">
+    <div class="footer-content">
+        <div class="row">
+            <!-- School Information Section -->
+            <div class="col s12 m3 l3 school-info center">
+                <img src="../assets/images/bia-logo-4.png" alt="b.i.a Logo" style="margin-bottom: 0;">
+                <h6 class="white-text font-bold" id="school-info" style="margin-top: 0;">Breman Islamic Academy</h6>
+                <p class="grey-text text-lighten-3" id="sub-school-info">
+                    Sovereignty Belongs to Allah.
+                    <br>We train children that gives SAKEENAH (Tranquility and Peace of Mind) in your old age.
+                </p>
+                <div class="social-media-icons center">
+                    <a class="big-icon" href="#BremanIslamicAcademy"><i class="bi bi-whatsapp"></i></a>
+                    <a class="big-icon" href="#BremanIslamicAcademy"><i class="bi bi-facebook"></i></a>
+                    <a class="big-icon" href="#BremanIslamicAcademy"><i class="bi bi-twitter"></i></a>
+                    <a class="big-icon" href="#BremanIslamicAcademy"><i class="bi bi-instagram"></i></a>
+                </div>
+                <hr style="margin-top: 15px;" class="hide-on-med-and-up">
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col s12 m4 l2">
+                <h6 class="white-text font-semibold">Quick Links</h6>
+                <hr style="border: none; border-top: 5px solid #fcfdfb; width: 75px;">
+                <ul>
+                    <li><a class="grey-text text-lighten-3 col s12" href="../index.html">
+                        <i class="bi bi-house left tiny"></i>Home</a></li>
+                    <li><a class="grey-text text-lighten-3 col s12" href="#results">
+                        <i class="bi bi-clipboard-data left tiny"></i>Results</a></li>
+                    <li><a class="grey-text text-lighten-3 col s12" href="#exams">
+                        <i class="bi bi-file-earmark-text left tiny"></i>Exams</a></li>
+                    <li style="border-right: none;"><a class="grey-text text-lighten-3 col s12" href="#gallery">
+                        <i class="bi bi-images left tiny"></i>Gallery</a></li>
+                </ul>
+                <hr style="margin-top: 115px;" class="hide-on-small-only hide-on-med-and-up">
+            </div>
+
+            <!-- Services Section -->
+            <div class="col s12 m4 l2">
+                <h6 class="white-text font-semibold">Services</h6>
+                <hr style="border: none; border-top: 5px solid #fcfdfb; width: 50px;">
+                <ul>
+                    <li><a class="grey-text text-lighten-3 col s12 m12 l12" 
+                           href="pages/audios.html" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                        <i class="bi bi-headset left tiny"></i>Media Library</a></li>
+                    <li><a class="grey-text text-lighten-3 col s12 m12 l12" href="#apply">
+                        <i class="bi bi-pencil-square left tiny"></i>Apply Online</a></li>
+                    <li><a class="grey-text text-lighten-3 col s12 m12 l12" href="#modal2">
+                        <i class="bi bi-question-circle left tiny"></i>Help & Support</a></li>
+                </ul>
+                <hr class="col s12 m12 l12 hide-on-med-and-up" style="margin: 10px 0;">
+            </div>
+
+            <!-- Contact Us Information Section -->
+            <div class="col s12 m6 l3 contact-info">
+                <h6 class="white-text font-semibold">Contact Us</h6>
+                <hr style="border: none; border-top: 5px solid #fcfdfb; width: 70px;">
+                <p class="grey-text text-lighten-3">
+                    <i class="bi bi-geo-alt small-icon"></i>
+                    <a class="grey-text text-lighten-3" href="https://maps.app.goo.gl/DE4b49jHT5XzuMd49"  target="_blank" style="line-height: 20px;">
+                        Behind Breman Asikuma Main Lorry Station, Central Region, Ghana
+                    </a>
+                </p>
+                <p class="grey-text text-lighten-3">
+                    <i class="bi bi-envelope small-icon"></i>
+                    <a href="mailto:info@bia.edu.gh" class="grey-text text-lighten-3 col s12">
+                        info@bia.edu.gh
+                    </a>
+                </p>
+                <p class="grey-text text-lighten-3">
+                    <i class="bi bi-telephone small-icon"></i>
+                    <a href="tel:+233241303485" class="grey-text text-lighten-3">
+                        +233 241 303 485
+                    </a>
+                </p>
+                <p class="grey-text text-lighten-3">
+                    <i class="bi bi-clock small-icon"></i>
+                    <span class="grey-text text-lighten-3">Mon - Fri: 6:00 AM - 5:00 PM</span>
+                </p>
+                <hr class="hide-on-med-and-up">
+            </div>
+
+            <!-- Audio Player Section -->
+            <div class="col s12 m3 l2 left-align">
+                <h6 class="white-text font-semibold">Background Music</h6>
+                <hr style="border: none; border-top: 5px solid #fcfdfb; width: 100px;">
+                <div class="audio-container">
+                    <audio controls id="audio" loop>
+                        <source src="https://res.cloudinary.com/rahmatrust-multi-services/video/upload/fl_attachment/v1777918968/m.background-music_ey910c.aac" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="footer-copyright">
+        <div>
+            <div class="row">
+                <div class="col s12 m6 l6 center" id="copyright">
+                    <span class="yellow-text font-normal text-sm">
+                        &copy; 2026 Breman Islamic Academy. All Rights Reserved.
+                    </span>
+                </div>
+                <div class="col s12 m6 l6 center" id="developer">
+                    <span class="grey-text text-lighten-2 font-normal text-sm ">
+                        Designed by: <span class="yellow-text">Rahma Trust IT & Digital Solutions</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- ==============Custom JavaScript============ -->
+    <script src="js/main.js"></script>
+<script>
+    // Initialize carousels
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // Initialize carousels visibility and indicators
+        const carouselElems = document.querySelectorAll('.carousel');
+        const carouselInstances = M.Carousel.init(carouselElems, {
+            fullWidth: true,
+            indicators: true,
+            numVisible: 1
+        });
+
+        // Automatically transition all carousels every 4 seconds
+        setInterval(() => {
+            carouselInstances.forEach(carousel => carousel.next());
+        }, 4000);
+        
+        // Enhanced hover effects for cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* ======== Styles for the brand logo ====== */
+.brandLogo {
+    display: flex;
+    align-items: center;
+}
+
+.brandLogo img {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.brandLogo a {
+    text-decoration: none;
+    font-size: 1em;
+}
+#first {
+    color: rgb(4, 102, 15);
+    margin: 0;
+}
+#second {
+    color: #800020;
+}
+
+.brandLogo a:hover {
+    border-bottom: 2px solid #800020;
+    border-radius: 20px;
+    background: whitesmoke;
+}
+/* ============================================ */
+
+/* ======== Styles for the navigation links ====== */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px 0 0;
+}
+
+.nav-links a {
+    color:  rgb(4, 102, 15);
+    font-size: 1em;
+    padding: 0 10px;
+    margin: 0;
+    border-radius: 20px;
+}
+
+.nav-links a:hover {
+    color: rgb(4, 102, 15);
+    font-weight: bold;
+    border-bottom: 3px solid #800020;
+}
+
+#active {
+    color: rgb(4, 102, 15);
+    font-weight: bold;
+    border-bottom: 3px solid #800020;
+}
+/* ============================================ */
+
+/* ======== Styles for the media player icon ====== */
+.media-player-icon {
+    color: rgb(4, 102, 15);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0 0 0;
+    border-radius: 20px;
+    height: 40px;
+    padding: 8px;
+}
+
+.media-player-icon i {
+    font-size: 1.5em;
+    margin-right: 3px;
+}
+
+.media-player-icon:hover {
+    background: whitesmoke;
+    border-bottom: 3px solid #800020;
+}
+/* ============================================ */
+
+/* ======== Styles for the sidnav-trigger ====== */
+.sidenav-trigger {
+    color: rgb(4, 102, 15);
+    font-size: 2em;
+    margin-right: 70%;
+}
+/* ============================================ */
+
+/* ======== Styles for the iframe ====== */
+iframe {
+    width: 100%;
+    height: calc(60vh - 0px);
+    border: none;
+    margin: 0;
+    display: flex;
+    line-height: 0;
+}
+/* ============================================ */
+
+/*.audios-section {
+    display: none;
+}*/
+
+/* ======== Styles for the copy-right ====== */
+.copy-right {
+    color: rgb(4, 102, 15);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 0;
+    background:white;
+    display: flex;
+    justify-content: center;
+    line-height: 5px;
+}
+/* ============================================ */
+
+        footer {
+            position: relative;
+            padding: 0;
+            z-index: 98;
+            border-radius: 1em 1em 0 0 !important;
+        }
+
+        footer .copyright .container {
+            padding: 0;
+        }
+
+        @media screen and (min-width:993.60px) {
+            #developer {white-space: nowrap; padding-left: 36%;}
+            audio {width: 60% !important;}
+        }

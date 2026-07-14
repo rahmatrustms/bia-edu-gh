@@ -1,0 +1,180 @@
+/* ============= All Audio List Styles =============== */
+.audio-item {
+    display: flex;
+    align-items: center;
+}
+
+.audio-left {
+    flex: 1;
+}
+
+.audio-title {
+    color: rgb(4, 102, 15);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.audio-meta {
+    font-size: 0.85rem;
+    color: #800020;
+}
+
+/* ------ Play, Add to favorites and Download buttons ------ */
+.audio-actions {
+    display: flex;
+    gap: 3px;
+}
+
+.icon-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* ------------------------------------------------------ */
+
+/* ===================================================== */
+
+
+/* ================ Main Player ======================= */
+.media-player {
+    width: 100%;
+    max-width: 450px;
+    background: rgb(3, 105, 15);
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(69, 63, 63, 0.5);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.track-info img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.track-info img,
+#trackArtwork {
+    display: block;
+    margin: 0 auto;
+}
+
+.track-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* ===================================================== */
+
+
+/* ================ Progress Bar ======================= */
+.progress-bar {
+    height: 4px;
+    background: #ddd;
+    margin-top: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #26a69a;
+}
+
+#progress {
+    flex: 1;
+    height: 4px;
+}
+/* ===================================================== */
+
+
+/* =================== Timeline ======================= */
+.timeline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* ===================================================== */
+
+
+/* ====== Previous, Play(Pause) and Next Controls ===== */
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex: 1;
+    margin: 0;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding-top: 0;
+}
+
+.controls button {
+   border-radius: 5px;
+   padding-top: 0;
+}
+
+button {
+    background: rgb(1, 88, 11);
+    border: 0.5px solid whitesmoke;
+    color: white;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #800020;
+}
+
+.extras {
+    display: flex;
+}
+
+/* ============== Volume Controls ===================== */
+.volume-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 0.6;
+    align-items: center;
+    gap: 10px;
+}
+
+#mute {
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+/* ============== Playback Speed ===================== */
+.playback-speed {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 0.2;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.playback-speed label, .playback-speed .speed-value, .volume-rate {
+    color: #fff;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.playback-speed select {
+    font-size: 12px;
+    background: rgb(1, 88, 11);
+    color: #fff;
+    border: 0.5px solid whitesmoke;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0;
+    height: 33px;
+}
+/* ===================================================== */
