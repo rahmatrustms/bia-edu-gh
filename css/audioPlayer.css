@@ -48,10 +48,9 @@
     flex-direction: column;
     margin: 0;
     position: fixed;
-    bottom: 33px;
+    bottom: 90px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
 }
 
 .back-image {
