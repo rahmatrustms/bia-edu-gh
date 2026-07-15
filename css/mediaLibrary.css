@@ -108,7 +108,7 @@ iframe {
 
 footer {
         position: fixed;
-        bottom: 5px;
+        bottom: 2px;
         display: flex;
         width: 100%;
 }
