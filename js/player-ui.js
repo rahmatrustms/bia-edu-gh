@@ -78,12 +78,25 @@ function updateVolumeUI() {
 
 }
 
+function updateTrackTitle(titleText) {
+    if (!title) return;
+
+    const marquee = title.querySelector("marquee");
+    const value = titleText || "- - - No Track Playing - - -";
+
+    if (marquee) {
+        marquee.textContent = value;
+    } else {
+        title.textContent = value;
+    }
+}
+
 function updateTrackInfo() {
     if (!player) return;
     const track = player.getCurrentTrack();
     if (!track) return;
 
-    if (title) title.textContent = track.title;
+    updateTrackTitle(track.title);
     if (artist) artist.textContent = track.artist;
     if (artwork) artwork.src = track.artwork || artwork.src;
 
@@ -274,20 +287,4 @@ updateVolumeUI();
 
 speed.value = player.audio.playbackRate;
 
-player.on("trackchange", () => {
 
-    const track =
-        player.getCurrentTrack();
-
-    if(!track) return;
-
-    title.textContent =
-        track.title;
-
-    artist.textContent =
-        track.artist;
-
-    artwork.src =
-        track.artwork;
-
-});

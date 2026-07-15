@@ -208,7 +208,7 @@ window.quranAudios = quranAudios;
 
 // Ensure every item has artwork and artist fallback
 (function ensureArtwork() {
-    const defaultArtwork = "https://res.cloudinary.com/rahmatrust-m-s/image/upload/favicon_hajuj4.png";
+    const defaultArtwork = "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/bia-logo_hcdlmj.png";
     const defaultArtist = "Sanaauallah Ishaq Frimpong";
     quranAudios.forEach(item => {
         if (!item.artwork) item.artwork = defaultArtwork;

@@ -29,204 +29,276 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
     <style>
-/* ======== Styles for the body ====== */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat; 
-    background-size: cover;
-}
-/* ============================================ */
+    /* ======== Global page layout ====== */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        background-repeat: no-repeat; 
+        background-size: cover;
+    }
+    /* ============================================ */
 
-/* ======== Styles for the navigation bar ====== */
-nav {
-    background:white;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 0;
-    padding: 0 16px;
-    height: 56px;
-    line-height: 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.brandLogo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.brandLogo a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #04500e;
-    text-decoration: none;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.brandLogo img {
-    width: 45px;
-    height: 34px;
-    object-fit: contain;
-}
-
-.spacer {
-    flex: 1;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links ul {
-    display: flex;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-
-
-.nav-links a:hover {
-    background: whitesmoke;
-}
-
-.media-player-icon {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #04500e;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.sidenav-trigger {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.sidenav-trigger:hover {
-    background: whitesmoke;
-}
-
-.sidenav {
-    width: 42%;
-    max-width: 300px;
-    border-radius: 0 18px 18px 0;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
-    padding: 12px 0 20px;
-    background: white;
-    color: #04500e;
-}
-
-.sidenav h5 {
-     color: #04500e;
-}
-
-.sidenav-header {
-    padding: 8px 20px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.16);
-    margin-bottom: 8px;
-}
-
-.sidenav-header h5 {
-    margin: 6px 0 6px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-}
-
-.sidenav li {
-    margin: 4px 10px;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.sidenav li a {
-    color: #f7fff8 !important;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-radius: 12px;
-    transition: all 0.25s ease;
-}
-
-.sidenav li a:hover,
-.sidenav li.active a {
-    background: rgba(255,255,255,0.16) !important;
-    color: #ffffff !important;
-    transform: translateX(4px);
-}
-
-.sidenav li.active {
-    background: rgba(255,255,255,0.14) !important;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16);
-}
-
-@media (max-width: 768px) {
+    /* ======== Header and top navigation ====== */
     nav {
-        padding: 0 12px;
+        background:white;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 0 16px;
+        min-height: 56px;
+        line-height: 40px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        flex-wrap: nowrap;
     }
 
-    .nav-links, .spacer,
-    .media-player-icon #first, .media-player-icon #second  {
-        display: none;
+    .brandLogo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    .brandLogo a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #04500e;
+        text-decoration: none;
+        font-weight: 700;
+        white-space: nowrap;
+        min-width: 0;
+    }
+
+    .brandLogo img {
+        width: 45px;
+        height: 34px;
+        object-fit: contain;
+    }
+
+    .spacer {
+        flex: 1 1 auto;
+        min-width: 12px;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-links ul {
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+
+
+    .nav-links a:hover {
+        background: whitesmoke;
+    }
+
+    .media-player-icon {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #04500e;
+        font-weight: 600;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-left: 8px;
+        background: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .media-player-icon:hover {
+        color: #056313;
     }
 
     .sidenav-trigger {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 0 8px;
+        margin-left: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 1024px) {
+        .sidenav-trigger {
+            display: flex;
+        }
+    }
+
+    .sidenav-trigger:hover {
+        background: whitesmoke;
+    }
+
+    /* ======== Mobile sidenav styles ====== */
+    .sidenav {
+        display: none;
+        width: min(150px, 84vw);
+        max-width: 280px;
+        height: 250px;
+        max-height: calc(100vh - 66px);
+        margin: 0;
+        border-radius: 12px 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+        padding: 0;
+        background: white;
+        color: #04500e;
+        position: absolute;
+        top: 58px;
+        left: 440px;
+        z-index: 1000;
+        overflow: hidden;
+    }
+
+    .sidenav.is-open {
+        display: block;
+    }
+
+    .sidenav h6 {
+        color: #04500e; 
+        margin: 10px 0 0 5px;
+        padding-bottom: 3px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .audio-sidenav-close {
+        position: absolute;
+        bottom: 10px;
+        right: 2px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: #04500e !important;
+        text-decoration: none;
+        z-index: 1000;
+        font-size: 0.95rem;
+    }
+
+    .audio-sidenav-close:hover {
+        background: rgba(4, 80, 14, 0.08);
+        color: #04500e !important;
+    }
+
+    .sidenav-header {
+        padding: 0px 0px 0px 0px;
+        border-bottom: 1px solid rgba(255,255,255,0.16);
+        margin-bottom: 8px;
+        position: relative;
+    }
+
+    .sidenav li a {
+        color: #04500e !important;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        transition: all 0.25s ease;
+    }
+
+    .sidenav-overlay {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    /* ======== Responsive behavior ====== */
+    @media (max-width: 768px) {
+        nav {
+            padding: 0 12px;
+        }
+
+        .nav-links, .spacer,
+        .media-player-icon #first, .media-player-icon #second  {
+            display: none;
+        }
+
+        .media-player-icon {
+            margin-left: 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .brandLogo a {
+            gap: 6px;
+            font-size: 0.95rem;
+        }
+
+        .brandLogo img {
+            width: 36px;
+            height: 28px;
+        }
+
+        .sidenav-trigger {
+            padding: 0 6px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .brandLogo {
+            font-size: 0.9rem;
+        }
+    }
+    /* ============================================ */
+
+    /* ======== Subnav and content area ====== */
+    .subnav {
+        margin-bottom: 0;
+    }
+    .back-nav {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 0 25px;
+        background: #f6f7ec;
+        color: #04500e !important;
+        border-radius: 4px !important;
+    }
+
+    .back-nav.visible {
         display: flex;
     }
-}
 
-@media (max-width: 480px) {
-    .brandLogo {
-        font-size: 0.9rem;
+    .playlist-panel {
+        margin: 16px 8px 0 0;
+        max-width: 900px;
     }
-}
-/* ============================================ */
-.subnav {
-    margin-bottom: 0;
-}
-.back-nav {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 0 25px;
-    background: #f6f7ec;
-    color: #04500e !important;
-    border-radius: 4px !important;
-}
 
-.back-nav.visible {
-    display: flex;
-}
+    #audio-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-.playlist-panel {
-    margin: 16px 8px 0 0;
-    max-width: 900px;
-}
+    .media-player {
+        display: flex;
+    }
 
-#audio-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+    .subnav {
+        margin: 0;
+        padding: 0;
+    }
 
-.media-player {
-    display: flex;
-}
+    iframe[name="content"] {
+        display: block;
+        margin-top: 0;
+        border: 0;
+    }
     </style>
 </head>
 <body>
@@ -260,10 +332,9 @@ nav {
             </div>
 
             <!------------ Media Player Icon ---------->
-            <div class="media-player-icon">
-                    <i class="bi bi-headset"></i>
-                    <b id="first">Hide Media</b><b id="second">Player</b>
-            </div>
+            <button type="button" class="media-player-icon" id="toggleMediaPlayer" aria-label="Toggle media player" style="background: transparent; border: none; padding: 0; cursor: pointer;">
+                <i class="bi bi-headset"></i>
+            </button>
 
             <!------------- Mobile Nav Icon ---------->
             <a href="#" 
@@ -276,8 +347,8 @@ nav {
             </a>
         </nav>
 
-        <section class="subnav">
-            <hr style="margin: 2px 0 0 0; 
+        <section class="subnav" style="margin-top: 0; padding-top: 0;">
+            <hr style="margin: 0 0 0 0; 
                 border: none; 
                 border-top: 1px solid #22c90b; 
                 width: 100%; 
@@ -293,7 +364,7 @@ nav {
             </a>
 
             <h1 class="flow-text center font-bold" 
-                style="margin: 10px 180px 0 0; 
+                style="margin: 6px 0 8px 0; 
                 white-space: nowrap;">
                 <i class="bi bi-headset"></i>Media Library
             </h1>
@@ -301,109 +372,121 @@ nav {
             <hr style=" border: none; 
                 border-top: 1px solid #22c90b;
                 width: 100%; 
-                margin-bottom: 0;
+                margin: 0;
                 margin-left: auto; 
                 margin-right: auto;">
         </section>
     </header>
 
     <main>
-        <aside>
-            <ul class="sidenav" 
-                id="mobile-nav" 
-                style="margin-top: 45px; 
-                color: black;">
-
-                <div class="sidenav-header white-text center-align">
-                    <h5>Quick Access</h5>
-                </div>
-
-                <div class="nav-item">
-                <li>
-                    <a href="../index.html" class="nav-link">
-                        <span style="color: #04500e;">Home</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="media-library.html" 
-                    target="content" 
-                    class="nav-link"
-                    id="active">
-                        <span style="color: #04500e;">Media Library</span>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-
         <iframe
             name="content"
             src="media-library.html">
         </iframe>
 
+        <aside>
+            <ul class="sidenav" 
+                id="mobile-nav">
+
+                <div class="sidenav-header">
+                    <a href="#" class="sidenav-close audio-sidenav-close" aria-label="Close navigation">
+                        <i class="bi bi-x-lg"></i>
+                    </a>
+                    <h6>Quick Access</h6>
+                    <hr style=" border: none; 
+                        border-top: 2px solid #22c90b;
+                        width: 100%;">
+                </div>
+
+                <div class="nav-item">
+                    <li>
+                        <a href="../index.html" 
+                           style="padding: 0 10px;
+                                  line-height: 0;">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="media-library.html" 
+                           target="content" 
+                           id="active"
+                           style="padding: 0 10px;
+                                  line-height: 0;">
+                            <span>Media Library</span>
+                        </a>
+                    </li>
+            </ul>
+        </aside>
+
+        
+
         <section id="mediaPlayer"
                  class="media-player container">
             <div class="track-info">
 
-                <img id="trackArtwork"
-                    src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/favicon_hajuj4.png"
+                <div class="back-image">
+                    <img id="trackArtwork"
+                    src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/bia-logo_hcdlmj.png"
                     alt="Artwork"
                     width="80"
                     height="60">
+                </div>
 
+            </div>
+
+            <div class="main-controls">
                 <div class="track-details">
 
                     <div id="trackTitle">
-                        No Track Playing
+                        <marquee>- - - No Track Playing - - -</marquee>
                     </div>
 
                     <div id="trackArtist" style="display: none;">
                         Breman Islamic Academy
                     </div>
 
+                </div> 
+                <!-- Timeline -->
+                <div class="timeline">
+                    <span id="currentTime">0:00</span>
+                    <input type="range" id="progress" value="0" min="0" max="100">
+                    <span id="duration">0:00</span>
                 </div>
 
-            </div>
-            
-            <!-- Timeline -->
-            <div class="timeline">
-                <span id="currentTime">0:00</span>
-                <input type="range" id="progress" value="0" min="0" max="100">
-                <span id="duration">0:00</span>
-            </div>
+                <!-- Extras -->
+                <div class="extras">
+                    <!-- Controls -->
+                    <div class="controls">
+                        <button id="backward" style="font-size: 18px;"><i class="bi bi-skip-start-fill"></i></button>
+                        <button id="playPause" style="font-size: 18px;"><i class="bi bi-play-fill"></i></button>
+                        <button id="forward" style="font-size: 18px;"><i class="bi bi-skip-end-fill"></i></button>
+                        <!-- 10s backward -->
+                        <button id="backward-10">
+                            <span class="material-symbols-outlined" style="font-size: 20px">replay_10</span>
+                        </button>
+                        <!-- 10s forward -->
+                        <button id="forward-10">
+                            <!-- Material icon forward_10 -->
+                            <span class="material-symbols-outlined" style="font-size: 20px;">forward_10</span>
+                        </button>
+                    </div>
 
-            <!-- Extras -->
-            <div class="extras">
-                <!-- Controls -->
-                <div class="controls">
-                    <button id="backward" style="font-size: 18px;"><i class="bi bi-skip-start-fill"></i></button>
-                    <button id="playPause" style="font-size: 18px;"><i class="bi bi-play-fill"></i></button>
-                    <button id="forward" style="font-size: 18px;"><i class="bi bi-skip-end-fill"></i></button>
-                    <!-- 10s backward -->
-                    <button id="backward-10">
-                        <span class="material-symbols-outlined" style="font-size: 20px">replay_10</span>
-                    </button>
-                    <!-- 10s forward -->
-                    <button id="forward-10">
-                        <!-- Material icon forward_10 -->
-                        <span class="material-symbols-outlined" style="font-size: 20px;">forward_10</span>
-                    </button>
-                </div>
+                    <div class="playback-speed">
+                        <select id="speed" class="browser-default">
+                            <option value="0.5">0.5x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="1.25">1.25x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2">2x</option>
+                        </select>
+                    </div>
 
-                <div class="playback-speed">
-                    <select id="speed" class="browser-default">
-                        <option value="0.5">0.5x</option>
-                        <option value="1" selected>1x</option>
-                        <option value="1.25">1.25x</option>
-                        <option value="1.5">1.5x</option>
-                        <option value="2">2x</option>
-                    </select>
-                </div>
-
-                <div class="volume-controls">
-                    <button id="mute"><i class="bi bi-volume-up-fill"></i></button>
-                    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
-                    <span class="volume-rate">100%</span>
+                    <div class="volume-controls">
+                        <button id="mute"><i class="bi bi-volume-up-fill"></i></button>
+                        <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+                        <span class="volume-rate">100%</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -413,6 +496,7 @@ nav {
     <footer>
         <section class="copy-right">
             <p>&copy; 2026 Breman Islamic Academy. All rights reserved.</p>
+            <p style="margin-left: 20px;">Version 4.0</p>
         </section>
     </footer>
 
@@ -427,17 +511,66 @@ nav {
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+    // Keep desktop nav links marked active when clicked
     $(document).ready(function() {
         $('.nav-links a').on('click', function() {
             $('.nav-links a').removeAttr('id');
             $(this).attr('id', 'active');
         });
-
-        if (window.M && typeof M.Sidenav !== 'undefined') {
-            const sidenavElems = document.querySelectorAll('.sidenav');
-            M.Sidenav.init(sidenavElems, { edge: 'left' });
-        }
     });
+
+    // Mobile sidenav toggle controls
+    const sidenav = document.getElementById('mobile-nav');
+    const sidenavTrigger = document.querySelector('.sidenav-trigger');
+    // Media player toggle controls
+    const toggleMediaPlayerButton = document.getElementById('toggleMediaPlayer');
+    const mediaPlayer = document.getElementById('mediaPlayer');
+    const largeScreenBreakpoint = 1024;
+
+    function openSidenav() {
+        if (sidenav) {
+            sidenav.classList.add('is-open');
+        }
+    }
+
+    function closeSidenav() {
+        if (sidenav) {
+            sidenav.classList.remove('is-open');
+        }
+    }
+
+    function handleViewportChange() {
+        if (window.innerWidth > largeScreenBreakpoint) {
+            closeSidenav();
+        }
+    }
+
+    if (sidenavTrigger) {
+        sidenavTrigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            if (sidenav && sidenav.classList.contains('is-open')) {
+                closeSidenav();
+            } else {
+                openSidenav();
+            }
+        });
+    }
+
+    document.querySelectorAll('.sidenav-close, .sidenav a').forEach(function (element) {
+        element.addEventListener('click', function () {
+            closeSidenav();
+        });
+    });
+
+    if (toggleMediaPlayerButton && mediaPlayer) {
+        toggleMediaPlayerButton.addEventListener('click', function () {
+            const isHidden = mediaPlayer.style.display === 'none';
+            mediaPlayer.style.display = isHidden ? 'flex' : 'none';
+        });
+    }
+
+    window.addEventListener('resize', handleViewportChange);
+    handleViewportChange();
 
     const iframe = document.querySelector('iframe[name="content"]');
     const backButton = document.getElementById('backToMediaLibrary');
