@@ -48,7 +48,7 @@
     flex-direction: column;
     margin: 0;
     position: fixed;
-    bottom: 90px;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
 }
