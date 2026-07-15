@@ -47,7 +47,7 @@
             width: 100%;
             background: #dadad5 !important;
             color: #04500e !important;
-            border-radius: 4px !important;
+            border-radius: 2px !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -84,7 +84,7 @@
         .card-panel {
             margin: 0 0 0 0 !important;
             border: none !important;
-            border-radius: 1em !important;
+            border-radius: 10px !important;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
         }
         .collection {
@@ -94,7 +94,16 @@
 
         .collection-item {
             color: #04500e !important;
-            border-radius: 1em !important;
+            border-radius: 10px !important;
+            border: 1px solid rgba(128, 128, 128, 0.319);
+        }
+
+        .collection-item:hover {
+            color: #04500e !important;
+            border-radius: 10px !important;
+            border: 1px solid #22c90b;
+            background: whitesmoke;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -124,7 +133,7 @@
                     </div>
 
                     <div class="card-action" style="display: flex; justify-content: space-around; padding: 0px;">
-                        <a href="../pages/sanaaullah_qur'an.html" 
+                        <a href="sanaaullah_qur'an.html" 
                            target="content"
                            class="list btn-small active col s6 font-bold" 
                            style="margin: 25px 8px 8px 0; 
@@ -157,7 +166,7 @@
 
                 <section class="audios-section">
                     <div class="row content">
-                        <div class="card-panel col s12 m12 l12 animate" style="padding: 0;">
+                        <div class="card-panel col s12 m12 l12" style="padding: 0;">
                             <div class="collection" style="margin: 0;">
                                 <ul id="audio-list" class="collection"></ul>
                             </div>
@@ -173,6 +182,10 @@
 
     <!-- Qur'an Playlist -->
     <script src="../js/quran-data.js"></script>
+
+    <script src="../js/storage.js"></script>
+
+    <script src="../js/playlist.js"></script>
 
     <!-- Playlist Engine -->
     <script src="../js/playlist.js"></script>

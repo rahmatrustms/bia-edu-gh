@@ -98,11 +98,10 @@
 /* ======== Styles for the iframe ====== */
 iframe {
     width: 100%;
-    height: calc(54vh - 0px);
+    height: calc(78.2vh - 0px);
     border: none;
     margin: 0;
     display: flex;
-    line-height: 0;
 }
 /* ============================================ */
 

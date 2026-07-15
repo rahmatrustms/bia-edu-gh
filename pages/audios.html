@@ -45,7 +45,7 @@
         background:white;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 0px;
         margin: 0;
         padding: 0 16px;
         min-height: 56px;
@@ -235,7 +235,7 @@
 
     @media (max-width: 480px) {
         .brandLogo a {
-            gap: 6px;
+            gap: 4px;
             font-size: 0.95rem;
         }
 
@@ -422,7 +422,7 @@
         
 
         <section id="mediaPlayer"
-                 class="media-player container">
+                 class="media-player">
             <div class="track-info">
 
                 <div class="back-image">
@@ -438,7 +438,7 @@
             <div class="main-controls">
                 <div class="track-details">
 
-                    <div id="trackTitle">
+                    <div id="trackTitle"  style="padding-top: 10px; display: flex;">
                         <marquee>- - - No Track Playing - - -</marquee>
                     </div>
 
@@ -449,26 +449,26 @@
                 </div> 
                 <!-- Timeline -->
                 <div class="timeline">
-                    <span id="currentTime">0:00</span>
-                    <input type="range" id="progress" value="0" min="0" max="100">
-                    <span id="duration">0:00</span>
+                    <span id="currentTime" style="margin: 10px 0 0 0;">0:00</span>
+                    <input type="range" id="progress" value="0" min="0" max="100" style="margin: 10px 0 0 0;">
+                    <span id="duration" style="margin: 10px 0 0 0;">0:00</span>
                 </div>
 
                 <!-- Extras -->
                 <div class="extras">
                     <!-- Controls -->
                     <div class="controls">
-                        <button id="backward" style="font-size: 18px;"><i class="bi bi-skip-start-fill"></i></button>
-                        <button id="playPause" style="font-size: 18px;"><i class="bi bi-play-fill"></i></button>
-                        <button id="forward" style="font-size: 18px;"><i class="bi bi-skip-end-fill"></i></button>
+                        <button id="backward" style="font-size: 15px;"><i class="bi bi-skip-start-fill"></i></button>
+                        <button id="playPause" style="font-size: 15px;"><i class="bi bi-play-fill"></i></button>
+                        <button id="forward" style="font-size: 15px;"><i class="bi bi-skip-end-fill"></i></button>
                         <!-- 10s backward -->
                         <button id="backward-10">
-                            <span class="material-symbols-outlined" style="font-size: 20px">replay_10</span>
+                            <span class="material-symbols-outlined" style="font-size: 18px">replay_10</span>
                         </button>
                         <!-- 10s forward -->
                         <button id="forward-10">
                             <!-- Material icon forward_10 -->
-                            <span class="material-symbols-outlined" style="font-size: 20px;">forward_10</span>
+                            <span class="material-symbols-outlined" style="font-size: 18px;">forward_10</span>
                         </button>
                     </div>
 
