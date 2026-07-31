@@ -39,7 +39,7 @@ class AudioPlayer {
         this.audio.addEventListener("play", () => {
 
             this.isPlaying = true;
-
+            StorageManager.savePlaying(true);
             this.emit("play");
 
         });
@@ -47,7 +47,7 @@ class AudioPlayer {
         this.audio.addEventListener("pause", () => {
 
             this.isPlaying = false;
-
+            StorageManager.savePlaying(false);
             this.emit("pause");
 
         });
@@ -238,10 +238,7 @@ class AudioPlayer {
             }, 5000);
         }
 
-        localStorage.setItem(
-            "bia-current-track",
-            this.currentIndex
-        );
+        StorageManager.saveTrack(this.currentIndex);
 
     }
 
@@ -254,6 +251,7 @@ class AudioPlayer {
     pause(){
 
         this.audio.pause();
+        StorageManager.savePlaying(false);
 
     }
 
@@ -267,13 +265,13 @@ class AudioPlayer {
 
         if(this.audio.paused){
 
-            this.audio.play();
+            this.play();
 
         }
 
         else{
 
-            this.audio.pause();
+            this.pause();
 
         }
 
@@ -512,28 +510,38 @@ class AudioPlayer {
 
     restore() {
 
-        const track =
-            StorageManager.getTrack();
+        const track = StorageManager.getTrack();
 
-        if (
-            Number.isNaN(track) ||
-            track < 0 ||
-            track >= this.playlist.length
-        ) return;
+        if (track === null || track < 0 || track >= this.playlist.length) {
+            return;
+        }
 
         const time = StorageManager.getTime();
+        const shouldResume = StorageManager.getPlaying();
 
         this.load(track);
 
-        this.audio.addEventListener(
-            "loadedmetadata",
-            () => {
-                if (!Number.isNaN(time) && time > 0 && time < this.audio.duration) {
-                    this.audio.currentTime = time;
-                }
-            },
-            { once: true }
-        );
+        const applyRestoreState = () => {
+            if (time !== null && !Number.isNaN(time) && time > 0 && this.audio.duration > 0 && time < this.audio.duration) {
+                this.audio.currentTime = time;
+            }
+
+            if (shouldResume) {
+                this.audio.play().catch((err) => {
+                    console.warn("Restore play failed", err);
+                });
+            }
+        };
+
+        if (this.audio.readyState >= 2) {
+            applyRestoreState();
+        } else {
+            this.audio.addEventListener(
+                "loadedmetadata",
+                applyRestoreState,
+                { once: true }
+            );
+        }
 
     }
 

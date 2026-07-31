@@ -20,6 +20,9 @@ function renderPlaylist(playlist) {
     }
 
     function initializePlayerEvents(player) {
+        if (player.__playlistEventsBound) return;
+        player.__playlistEventsBound = true;
+
         player.on("play", updateIcons);
         player.on("pause", updateIcons);
         player.on("trackchange", () => {
@@ -129,14 +132,6 @@ function renderPlaylist(playlist) {
         return false;
     }
 
-    if (!ensurePlayerReady()) {
-        const readyInterval = setInterval(() => {
-            if (ensurePlayerReady()) {
-                clearInterval(readyInterval);
-            }
-        }, 100);
-    }
-
     container.innerHTML = "";
 
     
@@ -226,7 +221,7 @@ function renderPlaylist(playlist) {
 
     
 
-    function updateIcons() {
+    function updateIcons(shouldScroll = false) {
         const player = getPlayer();
         if (!player) return;
 
@@ -241,8 +236,7 @@ function renderPlaylist(playlist) {
                     Number(btn.dataset.index);
 
                 if (
-                    player.currentIndex === index &&
-                    !player.isPaused()
+                    player.currentIndex === index
                 ) {
 
                     icon.className =
@@ -258,6 +252,15 @@ function renderPlaylist(playlist) {
                 }
 
             });
+
+        document.querySelectorAll(".audio-item").forEach((item, idx) => {
+            const isActive = player.currentIndex === idx;
+            item.classList.toggle("active", isActive);
+
+            if (isActive && shouldScroll) {
+                item.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        });
 
     }
 
@@ -423,6 +426,47 @@ function renderPlaylist(playlist) {
         }
 
     });
+
+    function restorePlaylistState(force = false) {
+        const player = getPlayer();
+        if (!player) return false;
+
+        const savedTrack = (typeof StorageManager !== "undefined" && StorageManager.getTrack) ? StorageManager.getTrack() : null;
+        const shouldRestore = force || (savedTrack !== null && savedTrack >= 0);
+
+        if (!force && player.__playlistRestored && !shouldRestore) {
+            updateIcons(true);
+            updateDurations();
+            return true;
+        }
+
+        initializePlayerEvents(player);
+        player.loadPlaylist(playlist);
+
+        if (typeof player.restore === "function") {
+            player.restore();
+        }
+
+        setTimeout(() => {
+            updateIcons(true);
+            updateDurations();
+        }, 150);
+        player.__playlistRestored = true;
+
+        return true;
+    }
+
+    window.restoreActivePlaylistTrack = function(force = false) {
+        return restorePlaylistState(force);
+    };
+
+    if (!restorePlaylistState()) {
+        const readyInterval = setInterval(() => {
+            if (restorePlaylistState()) {
+                clearInterval(readyInterval);
+            }
+        }, 100);
+    }
 
     updateIcons();
     updateDurations();

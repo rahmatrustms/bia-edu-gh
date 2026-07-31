@@ -17,7 +17,9 @@ const StorageManager = {
 
         SPEED: "bia-speed",
 
-        FAVORITES: "bia-favorites"
+        FAVORITES: "bia-favorites",
+
+        PLAYING: "bia-playing"
 
     },
 
@@ -32,11 +34,15 @@ const StorageManager = {
 
     getTrack() {
 
-        return Number(
-            localStorage.getItem(
-                this.KEYS.TRACK
-            )
+        const value = localStorage.getItem(
+            this.KEYS.TRACK
         );
+
+        if (value === null || value === "") return null;
+
+        const parsed = Number(value);
+
+        return Number.isNaN(parsed) ? null : parsed;
 
     },
 
@@ -51,11 +57,15 @@ const StorageManager = {
 
     getTime() {
 
-        return Number(
-            localStorage.getItem(
-                this.KEYS.TIME
-            )
+        const value = localStorage.getItem(
+            this.KEYS.TIME
         );
+
+        if (value === null || value === "") return null;
+
+        const parsed = Number(value);
+
+        return Number.isNaN(parsed) ? null : parsed;
 
     },
 
@@ -103,6 +113,25 @@ const StorageManager = {
 
     },
 
+    savePlaying(isPlaying) {
+
+        localStorage.setItem(
+            this.KEYS.PLAYING,
+            isPlaying ? "true" : "false"
+        );
+
+    },
+
+    getPlaying() {
+
+        const value = localStorage.getItem(
+            this.KEYS.PLAYING
+        );
+
+        return value === "true";
+
+    },
+
     saveFavorites(list) {
 
         localStorage.setItem(
@@ -137,6 +166,10 @@ const StorageManager = {
 
         localStorage.removeItem(
             this.KEYS.TIME
+        );
+
+        localStorage.removeItem(
+            this.KEYS.PLAYING
         );
 
     }
