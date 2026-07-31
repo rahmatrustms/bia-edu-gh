@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ======== Favicon ====== -->
-    <link rel="icon" href="https://res.cloudinary.com/rahmatrust-m-s/image/upload/f_auto/q_auto/bia-logo_hcdlmj.png" 
+    <link rel="icon" href="https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/bia-logo_hcdlmj.png" 
           type="image/png" 
           width="50"
           hight="50">
@@ -70,6 +70,12 @@
         font-weight: 700;
         white-space: nowrap;
         min-width: 0;
+    }
+
+    .brandLogo img {
+        width: 45px;
+        height: 34px;
+        object-fit: contain;
     }
 
     .spacer {
@@ -301,7 +307,7 @@
             <!----------- Brand Logo ----------->
             <div class="brandLogo">
                 <a href="media-library.html" target="content">
-                    <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/f_auto/q_auto/bia-logo_hcdlmj.png" 
+                    <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/bia-logo_hcdlmj.png" 
                          alt="Logo"
                          width="50"
                          height="50">
@@ -419,7 +425,7 @@
                  class="media-player">
             <div class="track-info">
 
-                <div class="back-image">
+                <div class="artwork" style="display: none;">
                     <img id="trackArtwork"
                     src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/bia-logo_hcdlmj.png"
                     alt="Artwork"
@@ -569,6 +575,8 @@
     const iframe = document.querySelector('iframe[name="content"]');
     const backButton = document.getElementById('backToMediaLibrary');
     const defaultFramePage = 'media-library.html';
+    const iframePageStateKey = 'bia-last-iframe-page';
+    let shouldIgnoreNextIframeLoad = true;
 
     function getIframePageName() {
         if (!iframe || !iframe.contentWindow || !iframe.contentWindow.location) {
@@ -578,6 +586,34 @@
         return href.split('/').pop() || '';
     }
 
+    function saveIframePageState() {
+        if (shouldIgnoreNextIframeLoad) {
+            shouldIgnoreNextIframeLoad = false;
+            return;
+        }
+
+        const pageName = getIframePageName();
+        if (pageName) {
+            localStorage.setItem(iframePageStateKey, pageName);
+        }
+    }
+
+    function restoreIframePage() {
+        if (!iframe) return false;
+
+        const storedPage = localStorage.getItem(iframePageStateKey);
+        if (!storedPage || storedPage === defaultFramePage) {
+            return false;
+        }
+
+        if (iframe.getAttribute('src') !== storedPage) {
+            iframe.src = storedPage;
+            return true;
+        }
+
+        return false;
+    }
+
     function updateBackButton() {
         if (!backButton) return;
         const pageName = getIframePageName();
@@ -585,21 +621,53 @@
         backButton.classList.toggle('visible', !isLibraryView);
     }
 
+    function restoreIframePlaylist() {
+        if (!iframe || !iframe.contentWindow) return;
+
+        let attempts = 0;
+
+        const tryRestore = () => {
+            if (typeof iframe.contentWindow.restoreActivePlaylistTrack === 'function') {
+                iframe.contentWindow.restoreActivePlaylistTrack(true);
+                return;
+            }
+
+            attempts += 1;
+            if (attempts < 10) {
+                setTimeout(tryRestore, 100);
+            }
+        };
+
+        tryRestore();
+    }
+
     if (backButton) {
         backButton.addEventListener('click', function (event) {
             event.preventDefault();
             if (iframe) {
                 iframe.src = defaultFramePage;
+                localStorage.setItem(iframePageStateKey, defaultFramePage);
             }
             updateBackButton();
         });
     }
 
     if (iframe) {
-        iframe.addEventListener('load', updateBackButton);
+        iframe.addEventListener('load', function () {
+            saveIframePageState();
+            updateBackButton();
+            restoreIframePlaylist();
+        });
     }
 
-    window.addEventListener('load', updateBackButton);
+    window.addEventListener('load', function () {
+        if (restoreIframePage()) {
+            return;
+        }
+
+        updateBackButton();
+        restoreIframePlaylist();
+    });
     </script>
     <audio
         id="globalAudio"

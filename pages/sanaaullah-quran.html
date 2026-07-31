@@ -117,7 +117,7 @@
                     <h1 class="flow-text font-bold" 
                         style="font-size: 1.25rem; 
                         margin: 0 0 20px 0;
-                        white-space: nowrap;">Sanaaullah Ishaq
+                        white-space: nowrap;">Sanaaullah Ishaq Frimpong
                     </h1>
 
                     <div class="card" style="margin-left: 5px;">
@@ -195,6 +195,12 @@
     document.addEventListener("DOMContentLoaded", () => {
 
         renderPlaylist(window.quranAudios);
+
+        setTimeout(() => {
+            if (window.restoreActivePlaylistTrack) {
+                window.restoreActivePlaylistTrack(true);
+            }
+        }, 250);
 
     });
 

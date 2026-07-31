@@ -21,6 +21,7 @@ class AudioPlayer {
 
         // Player State
         this.isPlaying = false;
+        this.isPersistingUnload = false;
 
         // Event Callbacks
         this.callbacks = {};
@@ -40,14 +41,32 @@ class AudioPlayer {
 
             this.isPlaying = true;
             StorageManager.savePlaying(true);
+            if (this.currentIndex >= 0) {
+                StorageManager.saveTrack(this.currentIndex);
+            }
+            StorageManager.saveTime(this.audio.currentTime);
             this.emit("play");
 
         });
 
         this.audio.addEventListener("pause", () => {
 
+            if (this.isPersistingUnload) {
+                this.isPersistingUnload = false;
+                StorageManager.savePlaying(true);
+                if (this.currentIndex >= 0) {
+                    StorageManager.saveTrack(this.currentIndex);
+                }
+                StorageManager.saveTime(this.audio.currentTime);
+                return;
+            }
+
             this.isPlaying = false;
             StorageManager.savePlaying(false);
+            if (this.currentIndex >= 0) {
+                StorageManager.saveTrack(this.currentIndex);
+            }
+            StorageManager.saveTime(this.audio.currentTime);
             this.emit("pause");
 
         });
@@ -92,6 +111,8 @@ class AudioPlayer {
         });
 
         this.initializeMediaSession();
+        window.addEventListener("pagehide", () => this.persistPlaybackForReload());
+        window.addEventListener("beforeunload", () => this.persistPlaybackForReload());
 
     }
 
@@ -476,6 +497,17 @@ class AudioPlayer {
 
     }
 
+    persistPlaybackForReload() {
+        if (!this.audio || this.audio.paused || this.currentIndex < 0) {
+            return;
+        }
+
+        this.isPersistingUnload = true;
+        StorageManager.savePlaying(true);
+        StorageManager.saveTrack(this.currentIndex);
+        StorageManager.saveTime(this.audio.currentTime);
+    }
+
     updateMediaSession(){
 
         if(!("mediaSession" in navigator)) return;
@@ -520,11 +552,14 @@ class AudioPlayer {
         const shouldResume = StorageManager.getPlaying();
 
         this.load(track);
+        this.emit("trackchange");
 
         const applyRestoreState = () => {
             if (time !== null && !Number.isNaN(time) && time > 0 && this.audio.duration > 0 && time < this.audio.duration) {
                 this.audio.currentTime = time;
             }
+
+            this.emit("trackchange");
 
             if (shouldResume) {
                 this.audio.play().catch((err) => {

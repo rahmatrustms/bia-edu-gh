@@ -102,6 +102,25 @@ function updateTrackInfo() {
 
 }
 
+function syncPlayerUI() {
+    if (!player) return;
+    updateTrackInfo();
+    updatePlayButton();
+    updateVolumeUI();
+
+    if (currentTime && player.audio) {
+        currentTime.textContent = player.format(player.getCurrentTime());
+    }
+
+    if (duration && player.audio) {
+        duration.textContent = player.format(player.getDuration());
+    }
+
+    if (progress && player.audio && Number.isFinite(player.audio.duration) && player.audio.duration > 0) {
+        progress.value = (player.audio.currentTime / player.audio.duration) * 100;
+    }
+}
+
 if (playPauseButton) {
     playPauseButton.addEventListener("click", () => {
         if (!player) return;
@@ -235,8 +254,7 @@ function attachPlayerEvents() {
     });
 
     player.on("trackchange", () => {
-        updateTrackInfo();
-        updatePlayButton();
+        syncPlayerUI();
         if (currentTime) currentTime.textContent = "00:00";
         if (duration) duration.textContent = "00:00";
         if (progress) progress.value = 0;
@@ -284,6 +302,7 @@ INITIALIZE
 
 updatePlayButton();
 updateVolumeUI();
+syncPlayerUI();
 
 speed.value = player.audio.playbackRate;
 

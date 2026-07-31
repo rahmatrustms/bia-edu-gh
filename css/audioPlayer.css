@@ -10,8 +10,9 @@
 .audio-item.active,
 .audio-item:hover,
 .audio-item.active:hover {
+    background-color: whitesmoke !important;
     background: whitesmoke;
-    border-left: 3px solid #26a69a;
+    border: 1px solid #22c90b;
 }
 
 .audio-item.active .audio-title,
@@ -78,6 +79,7 @@
     background: rgb(3, 105, 15);
     line-height: 14.9px;
     border-radius: 10px;
+    margin: 0 5px;
 }
 
 .track-info img{
@@ -202,7 +204,7 @@ button:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex: 0.2;
+    flex: 0.3;
     align-items: center;
     margin-right: 5px;
 }
