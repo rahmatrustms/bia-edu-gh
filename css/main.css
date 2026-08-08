@@ -13,10 +13,18 @@
 
 /* ================= NAVBAR ================= */
         nav {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-            position: fixed; z-index: 1000;
+            background:white;
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            margin: 0;
+            padding: 0 16px;
+            height: 46px;
+            line-height: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: nowrap;
         }
-
+        
         .sidenav-trigger {
             display: none;
         }
@@ -78,7 +86,7 @@
 
 
 
-        .sidenav li i, a {
+        .sidenav li i, .sidenav a {
             color:  #ecebe6 !important;
         }
 
@@ -106,10 +114,10 @@
         /* =================Floating scroll-to-top button=============== */
         .scroll-to-top {
             position: fixed;
-            bottom: 0px;
+            bottom: 80px;
             right: 20px;
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             background: linear-gradient(45deg, #4CAF50, #45a049);
             color: white;
             border: none;
@@ -137,10 +145,10 @@
         /* ===============Floating scroll-to-bottom button=========== */
         .scroll-to-down {
             position: fixed;
-            top: 0;
-            right: 20px;
-            width: 50px;
-            height: 50px;
+            top: 60px;
+            right: 5px;
+            width: 30px;
+            height: 30px;
             background: linear-gradient(45deg, #4CAF50, #45a049);
             color: white;
             border: none;
@@ -165,7 +173,7 @@
         }
 
         .scroll-to-top i, .scroll-to-down i {
-            font-size: 24px;
+            font-size: 15px;
         }
         /* ==========================END========================== */
 

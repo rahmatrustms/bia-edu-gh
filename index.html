@@ -9,7 +9,7 @@
 
     <!-- Customized CSS -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/mediaLibrary.css">
+    <link rel="stylesheet" type="text/css" href="css/mediaLibrary.css">
     <!-- Custom helpers -->
     <link rel="stylesheet" type="text/css" href="css/helpers.css">
 
@@ -28,8 +28,8 @@
             gap: 0px;
             margin: 0;
             padding: 0 16px;
-            min-height: 56px;
-            line-height: 40px;
+            height: 46px;
+            line-height: 30px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             flex-wrap: nowrap;
         }
@@ -84,8 +84,8 @@
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 0 8px;
-            margin-left: 18%;
+            padding: 0 12px;
+            margin-left: auto;
             border-radius: 8px;
             cursor: pointer;
             flex-shrink: 0;
@@ -94,7 +94,7 @@
         @media (max-width: 1024px) {
             .sidenav-trigger {
                 display: flex;
-                margin-left: 18%;
+                margin-left: auto;
             }
         }
 
@@ -105,9 +105,9 @@
         /* ======== Mobile sidenav styles ====== */
         .sidenav {
             display: none;
-            width: min(150px, 84vw);
+            width: min(220px, 84vw);
             max-width: 280px;
-            height: 250px;
+            height: auto;
             max-height: calc(100vh - 66px);
             margin: 0;
             border-radius: 12px 12px;
@@ -115,15 +115,19 @@
             padding: 0;
             background: white;
             color: #04500e;
-            position: absolute;
+            position: fixed;
             top: 58px;
-            left: 100%;
+            right: -320px;
             z-index: 1000;
             overflow: hidden;
+            transition: right 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
         }
 
         .sidenav.is-open {
             display: block;
+            right: 20px;
+            opacity: 1;
         }
 
         .sidenav h6 {
@@ -181,17 +185,12 @@
             display: flex;
             justify-content: center;
             align-items: center; }
- 
-        .carousel .carousel-item img {
-            position: relative;
-            top: 50px;
-        }
 
         /* Custom card styling */
         .card {
             border-radius: 1em !important;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
-            transition: all 0.3s ease !important;
+            transition: all 0.5s ease !important;
         }
 
         /* ======== Responsive behavior ====== */
@@ -268,11 +267,11 @@
                            class="green-text">Gallery</a>
                     </li>
 
-                    <li><a href="../pages/audios.html" 
+                    <li><a href="pages/audios.html" 
                            class="green-text">Media Library</a>
                     </li>
 
-                    <li><a href="#"
+                    <li><a href="#" truncate
                            class="green-text">Apply Online</a></li>
                 </ul>
             </div>
@@ -282,8 +281,8 @@
                data-target="mobile-nav" 
                class="sidenav-trigger right green-text" 
                aria-label="Open navigation menu"
-               style="height: 45px;
-               justify-content: center;">
+               style="margin: 0 93%;
+                     justify-content: center;">
                 <i class="bi bi-list"></i>
             </a>
         </nav>
@@ -296,15 +295,14 @@
             <a class="carousel-item">
                 <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/welcome_jqqbqg.png" 
                     alt="First Logo of B.I.A"
-                    width="300"
+                    width="500"
                     height="200">        
             </a>
             <a class="carousel-item">
                 <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/admission-opens_qdr5mc.png"
                     alt="Admission image"
-                    width=""
-                    height="">
-                <h2 class="caption">2025/2026 Admissions are Open</h2>
+                    width="500"
+                    height="200">
             </a>
         </section>
 
@@ -342,41 +340,31 @@
 
         </div>
 
-        </div>
 
         <aside>
-            <ul class="sidenav" 
-                id="mobile-nav">
-
+            <div class="sidenav" id="mobile-nav">
                 <div class="sidenav-header">
                     <a href="#" class="sidenav-close audio-sidenav-close" aria-label="Close navigation">
                         <i class="bi bi-x-lg"></i>
                     </a>
                     <h6>Quick Access</h6>
-                    <hr style=" border: none; 
-                        border-top: 2px solid #22c90b;
-                        width: 100%;">
+                    <hr style="border: none; border-top: 2px solid #22c90b; width: 100%;">
                 </div>
 
-                <div class="nav-item">
+                <ul class="nav-item">
                     <li>
-                        <a href="../index.html" 
-                           style="padding: 0 10px;
-                                  line-height: 0;">
+                        <a href="index.html" style="padding: 0 10px; line-height: 0;">
                             <span>Home</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="media-library.html" 
-                           target="content" 
-                           id="active"
-                           style="padding: 0 10px;
-                                  line-height: 0;">
+                        <a href="pages/audios.html" style="padding: 0 10px; line-height: 0;">
                             <span>Media Library</span>
                         </a>
                     </li>
-            </ul>
+                </ul>
+            </div>
         </aside>
     </main>
 
@@ -541,6 +529,8 @@
             }
         });
     }
+
+    window.addEventListener('resize', handleViewportChange);
 
     document.querySelectorAll('.sidenav-close, .sidenav a').forEach(function (element) {
         element.addEventListener('click', function () {

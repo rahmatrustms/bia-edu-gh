@@ -11,6 +11,7 @@
         const scrollButton = document.createElement('button');
         scrollButton.innerHTML = '<i class="bi bi-arrow-up"></i>';
         scrollButton.className = 'scroll-to-top';
+        scrollButton.style.bottom = '20px';
         scrollButton.title = 'Scroll to top';
         document.body.appendChild(scrollButton);
 
@@ -18,7 +19,7 @@
         const scrollDownButton = document.createElement('button');
         scrollDownButton.innerHTML = '<i class="bi bi-arrow-down"></i>';
         scrollDownButton.className = 'scroll-to-down';
-        scrollDownButton.style.bottom = '80px';
+        scrollDownButton.style.top = '20px';
         scrollDownButton.title = 'Scroll down';
         document.body.appendChild(scrollDownButton);
 
