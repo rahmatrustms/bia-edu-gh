@@ -102,6 +102,81 @@
             background: whitesmoke;
         }
 
+        /* ======== Mobile sidenav styles ====== */
+        .sidenav {
+            display: none;
+            width: min(150px, 84vw);
+            max-width: 280px;
+            height: 250px;
+            max-height: calc(100vh - 66px);
+            margin: 0;
+            border-radius: 12px 12px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            background: white;
+            color: #04500e;
+            position: absolute;
+            top: 58px;
+            left: 100%;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .sidenav.is-open {
+            display: block;
+        }
+
+        .sidenav h6 {
+            color: #04500e; 
+            margin: 10px 0 0 5px;
+            padding-bottom: 3px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .audio-sidenav-close {
+            position: absolute;
+            bottom: 10px;
+            right: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: #04500e !important;
+            text-decoration: none;
+            z-index: 1000;
+            font-size: 0.95rem;
+        }
+
+        .audio-sidenav-close:hover {
+            background: rgba(4, 80, 14, 0.08);
+            color: #04500e !important;
+        }
+
+        .sidenav-header {
+            padding: 0px 0px 0px 0px;
+            border-bottom: 1px solid rgba(255,255,255,0.16);
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .sidenav li a {
+            color: #04500e !important;
+            display: flex;
+            align-items: center;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .sidenav-overlay {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
         .carousel {
             display: flex;
             justify-content: center;
