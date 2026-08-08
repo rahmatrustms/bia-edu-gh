@@ -117,6 +117,45 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
             transition: all 0.3s ease !important;
         }
+
+        /* ======== Responsive behavior ====== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 12px;
+            }
+
+            .nav-links, .spacer,
+            .media-player-icon #first, .media-player-icon #second  {
+                display: none;
+            }
+
+            .media-player-icon {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brandLogo a {
+                gap: 4px;
+                font-size: 0.95rem;
+            }
+
+            .brandLogo img {
+                width: 36px;
+                height: 28px;
+            }
+
+            .sidenav-trigger {
+                padding: 0 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brandLogo {
+                font-size: 0.9rem;
+            }
+        }
+        /* ============================================ */
     </style>
 </head>
 <body>
