@@ -29,19 +29,6 @@
             top: 50px;
         }
 
-        .caption {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 250px 0;
-            
-            text-align: center; 
-
-        }
-
         /* Custom card styling */
         .card {
             border-radius: 1em !important;
@@ -51,30 +38,60 @@
     </style>
 </head>
 <body>
-<header>
-<!-- ================= NAVBAR ================= -->
-    <nav class="green nav nav-wrapper">
-        <div class="contain">
+    <header>
+        <nav>
+            <!----------- Brand Logo ----------->
+            <div class="brandLogo">
+                <a href="media-library.html" target="content">
+                    <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/bia-logo_hcdlmj.png" 
+                         alt="Logo"
+                         width="50"
+                         height="50">
+                    <b id="first">Breman Islamic</b><b id="second">Academy</b>
+                </a>
+            </div>
 
-        <a href="#" class="brand-logo"><img src="assets/images/bia-logo.jpg" alt="bia_logo" id="navImg"></a>
+            <div class="spacer" style="flex-grow: 1;"></div>
+  
+            <!----------- Desktop nav --------->
+            <div class="nav-links">
+                <ul>
+                    <li><a href="../index.html"
+                           id="active"
+                           class="green-text">Home</a>
+                    </li>
 
-        <!-- Mobile menu icon --> 
-        <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
-            <i class="bi bi-list"></i>
-        </a>
+                    <li>
+                        <a href="#">Results</a>
+                    </li>
 
-        <!-- Desktop nav -->
-        <ul class="right hide-on-med-and-down">
-            <li><a href="#"><i class="bi bi-house-door"></i>Home</a></li>
-            <li><a href="#"><i class="bi bi-clipboard-data"></i>Results</a></li>
-            <li><a href="#"><i class="bi bi-journal-bookmark"></i>Exams</a></li>
-            <li><a href="#"><i class="bi bi-images"></i>Gallery</a></li>
-            <li><a href="#"><i class="bi bi-pencil-square"></i>Apply</a></li>
-        </ul>
+                    <li>
+                        <a href="#">Exams</a>
+                    </li>
 
-    </div>
-</nav>
-</header>
+                    <li>
+                        <a href="#">Gallery</a>
+                    </li>
+
+                    <li><a href="media-library.html" 
+                           class="green-text">Media Library</a>
+                    </li>
+
+                    <li><a href="#">Apply Online</a></li>
+                </ul>
+            </div>
+
+            <!------------- Mobile Nav Icon ---------->
+            <a href="#" 
+               data-target="mobile-nav" 
+               class="sidenav-trigger right green-text" 
+               aria-label="Open navigation menu"
+               style="height: 45px;
+               justify-content: center;">
+                <i class="bi bi-list"></i>
+            </a>
+        </nav>
+    </header>
 
 <main>
 <!--===BASE DESIGN===-->
