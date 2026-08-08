@@ -19,7 +19,7 @@
         const scrollDownButton = document.createElement('button');
         scrollDownButton.innerHTML = '<i class="bi bi-arrow-down"></i>';
         scrollDownButton.className = 'scroll-to-down';
-        scrollDownButton.style.top = '20px';
+        scrollDownButton.style.top = '50px';
         scrollDownButton.title = 'Scroll down';
         document.body.appendChild(scrollDownButton);
 
