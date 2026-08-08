@@ -29,276 +29,276 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
     <style>
-    /* ======== Global page layout ====== */
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        background-repeat: no-repeat; 
-        background-size: cover;
-    }
-    /* ============================================ */
-
-    /* ======== Header and top navigation ====== */
-    nav {
-        background:white;
-        display: flex;
-        align-items: center;
-        gap: 0px;
-        margin: 0;
-        padding: 0 16px;
-        min-height: 56px;
-        line-height: 40px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        flex-wrap: nowrap;
-    }
-
-    .brandLogo {
-        display: flex;
-        align-items: center;
-        flex-shrink: 1;
-        min-width: 0;
-    }
-
-    .brandLogo a {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #04500e;
-        text-decoration: none;
-        font-weight: 700;
-        white-space: nowrap;
-        min-width: 0;
-    }
-
-    .brandLogo img {
-        width: 45px;
-        height: 34px;
-        object-fit: contain;
-    }
-
-    .spacer {
-        flex: 1 1 auto;
-        min-width: 12px;
-    }
-
-    .nav-links {
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-links ul {
-        display: flex;
-        gap: 8px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-
-
-    .nav-links a:hover {
-        background: whitesmoke;
-    }
-
-    .media-player-icon {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        color: #04500e;
-        font-weight: 600;
-        white-space: nowrap;
-        flex-shrink: 0;
-        margin-left: 8px;
-        background: transparent;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-    }
-
-    .media-player-icon:hover {
-        color: #056313;
-    }
-
-    .sidenav-trigger {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 0 8px;
-        margin-left: 8px;
-        border-radius: 8px;
-        cursor: pointer;
-        flex-shrink: 0;
-    }
-
-    @media (max-width: 1024px) {
-        .sidenav-trigger {
+        /* ======== Global page layout ====== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
             display: flex;
+            flex-direction: column;
+            background-repeat: no-repeat; 
+            background-size: cover;
         }
-    }
+        /* ============================================ */
 
-    .sidenav-trigger:hover {
-        background: whitesmoke;
-    }
-
-    /* ======== Mobile sidenav styles ====== */
-    .sidenav {
-        display: none;
-        width: min(150px, 84vw);
-        max-width: 280px;
-        height: 250px;
-        max-height: calc(100vh - 66px);
-        margin: 0;
-        border-radius: 12px 12px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-        padding: 0;
-        background: white;
-        color: #04500e;
-        position: absolute;
-        top: 58px;
-        left: 100%;
-        z-index: 1000;
-        overflow: hidden;
-    }
-
-    .sidenav.is-open {
-        display: block;
-    }
-
-    .sidenav h6 {
-        color: #04500e; 
-        margin: 10px 0 0 5px;
-        padding-bottom: 3px;
-        font-weight: bold;
-        white-space: nowrap;
-    }
-
-    .audio-sidenav-close {
-        position: absolute;
-        bottom: 10px;
-        right: 2px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        color: #04500e !important;
-        text-decoration: none;
-        z-index: 1000;
-        font-size: 0.95rem;
-    }
-
-    .audio-sidenav-close:hover {
-        background: rgba(4, 80, 14, 0.08);
-        color: #04500e !important;
-    }
-
-    .sidenav-header {
-        padding: 0px 0px 0px 0px;
-        border-bottom: 1px solid rgba(255,255,255,0.16);
-        margin-bottom: 8px;
-        position: relative;
-    }
-
-    .sidenav li a {
-        color: #04500e !important;
-        display: flex;
-        align-items: center;
-        border-radius: 12px;
-        transition: all 0.25s ease;
-    }
-
-    .sidenav-overlay {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-    }
-
-    /* ======== Responsive behavior ====== */
-    @media (max-width: 768px) {
+        /* ======== Header and top navigation ====== */
         nav {
-            padding: 0 12px;
+            background:white;
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            margin: 0;
+            padding: 0 16px;
+            min-height: 56px;
+            line-height: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: nowrap;
         }
 
-        .nav-links, .spacer,
-        .media-player-icon #first, .media-player-icon #second  {
-            display: none;
+        .brandLogo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 1;
+            min-width: 0;
         }
 
-        .media-player-icon {
-            margin-left: 0;
-        }
-    }
-
-    @media (max-width: 480px) {
         .brandLogo a {
-            gap: 4px;
-            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #04500e;
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+            min-width: 0;
         }
 
         .brandLogo img {
-            width: 36px;
-            height: 28px;
+            width: 45px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        .spacer {
+            flex: 1 1 auto;
+            min-width: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links ul {
+            display: flex;
+            gap: 8px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+
+        .nav-links a:hover {
+            background: whitesmoke;
+        }
+
+        .media-player-icon {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #04500e;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: 8px;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .media-player-icon:hover {
+            color: #056313;
         }
 
         .sidenav-trigger {
-            padding: 0 6px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0 8px;
+            margin-left: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            flex-shrink: 0;
         }
-    }
 
-    @media (max-width: 480px) {
-        .brandLogo {
-            font-size: 0.9rem;
+        @media (max-width: 1024px) {
+            .sidenav-trigger {
+                display: flex;
+            }
         }
-    }
-    /* ============================================ */
 
-    /* ======== Subnav and content area ====== */
-    .subnav {
-        margin-bottom: 0;
-    }
-    .back-nav {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        margin: 0 0 0 25px;
-        background: #f6f7ec;
-        color: #04500e !important;
-        border-radius: 4px !important;
-    }
+        .sidenav-trigger:hover {
+            background: whitesmoke;
+        }
 
-    .back-nav.visible {
-        display: flex;
-    }
+        /* ======== Mobile sidenav styles ====== */
+        .sidenav {
+            display: none;
+            width: min(150px, 84vw);
+            max-width: 280px;
+            height: 250px;
+            max-height: calc(100vh - 66px);
+            margin: 0;
+            border-radius: 12px 12px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            background: white;
+            color: #04500e;
+            position: absolute;
+            top: 58px;
+            left: 100%;
+            z-index: 1000;
+            overflow: hidden;
+        }
 
-    .playlist-panel {
-        margin: 16px 8px 0 0;
-        max-width: 900px;
-    }
+        .sidenav.is-open {
+            display: block;
+        }
 
-    #audio-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+        .sidenav h6 {
+            color: #04500e; 
+            margin: 10px 0 0 5px;
+            padding-bottom: 3px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
 
-    .media-player {
-        display: flex;
-    }
+        .audio-sidenav-close {
+            position: absolute;
+            bottom: 10px;
+            right: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: #04500e !important;
+            text-decoration: none;
+            z-index: 1000;
+            font-size: 0.95rem;
+        }
 
-    .subnav {
-        margin: 0;
-        padding: 0;
-    }
+        .audio-sidenav-close:hover {
+            background: rgba(4, 80, 14, 0.08);
+            color: #04500e !important;
+        }
 
-    iframe[name="content"] {
-        display: block;
-        margin-top: 0;
-        border: 0;
-    }
+        .sidenav-header {
+            padding: 0px 0px 0px 0px;
+            border-bottom: 1px solid rgba(255,255,255,0.16);
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .sidenav li a {
+            color: #04500e !important;
+            display: flex;
+            align-items: center;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .sidenav-overlay {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+        /* ======== Responsive behavior ====== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 12px;
+            }
+
+            .nav-links, .spacer,
+            .media-player-icon #first, .media-player-icon #second  {
+                display: none;
+            }
+
+            .media-player-icon {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brandLogo a {
+                gap: 4px;
+                font-size: 0.95rem;
+            }
+
+            .brandLogo img {
+                width: 36px;
+                height: 28px;
+            }
+
+            .sidenav-trigger {
+                padding: 0 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brandLogo {
+                font-size: 0.9rem;
+            }
+        }
+        /* ============================================ */
+
+        /* ======== Subnav and content area ====== */
+        .subnav {
+            margin-bottom: 0;
+        }
+        .back-nav {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 0 25px;
+            background: #f6f7ec;
+            color: #04500e !important;
+            border-radius: 4px !important;
+        }
+
+        .back-nav.visible {
+            display: flex;
+        }
+
+        .playlist-panel {
+            margin: 16px 8px 0 0;
+            max-width: 900px;
+        }
+
+        #audio-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .media-player {
+            display: flex;
+        }
+
+        .subnav {
+            margin: 0;
+            padding: 0;
+        }
+
+        iframe[name="content"] {
+            display: block;
+            margin-top: 0;
+            border: 0;
+        }
     </style>
 </head>
 <body>

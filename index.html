@@ -19,6 +19,89 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <style>
+        /* ======== Header and top navigation ====== */
+        nav {
+            background:white;
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            margin: 0;
+            padding: 0 16px;
+            min-height: 56px;
+            line-height: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: nowrap;
+        }
+
+        .brandLogo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 1;
+            min-width: 0;
+        }
+
+        .brandLogo a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #04500e;
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+            min-width: 0;
+        }
+
+        .brandLogo img {
+            width: 45px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        .spacer {
+            flex: 1 1 auto;
+            min-width: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links ul {
+            display: flex;
+            gap: 8px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+
+        .nav-links a:hover {
+            background: whitesmoke;
+        }
+
+        .sidenav-trigger {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0 8px;
+            margin-left: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .sidenav-trigger {
+                display: flex;
+            }
+        }
+
+        .sidenav-trigger:hover {
+            background: whitesmoke;
+        }
+
         .carousel {
             display: flex;
             justify-content: center;
