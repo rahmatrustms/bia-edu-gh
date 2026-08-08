@@ -22,11 +22,14 @@
     <style>
         /* ======== Header and top navigation ====== */
         nav {
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
             background:white;
             display: flex;
             align-items: center;
             gap: 0px;
-            margin: 0;
             padding: 0 16px;
             height: 46px;
             line-height: 30px;
@@ -185,7 +188,9 @@
             display: flex;
             justify-content: center;
             background: rgba(4, 102, 15, 0.392);
-            align-items: center; }
+            align-items: center; 
+            top: 70px;
+            width: 100%;}
 
         /* Custom card styling */
         .card {
@@ -292,18 +297,16 @@
     <main>
     <!--===BASE DESIGN===-->
         <!-- CAROUSEL -->
-        <section class="carousel carousel-slider">
+        <section class="carousel carousel-slider" style="margin-top: 47px;">
             <a class="carousel-item">
                 <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/welcome_jqqbqg.png" 
                     alt="First Logo of B.I.A"
-                    width="400"
-                    height="100">        
+                    height="150">        
             </a>
             <a class="carousel-item">
                 <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/admission-opens_qdr5mc.png"
                     alt="Admission image"
-                    width="400"
-                    height="100">
+                    height="150">
             </a>
         </section>
 
