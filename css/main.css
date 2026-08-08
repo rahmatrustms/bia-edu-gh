@@ -13,7 +13,6 @@
 
 /* ================= NAVBAR ================= */
         nav {
-            border-radius: 0 0 1em 1em !important;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
             position: fixed; z-index: 1000;
         }
