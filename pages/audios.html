@@ -332,7 +332,11 @@
             </div>
 
             <!------------ Media Player Icon ---------->
-            <button type="button" class="media-player-icon" id="toggleMediaPlayer" aria-label="Toggle media player" style="background: transparent; border: none; padding: 0; cursor: pointer;">
+            <button type="button" 
+                    class="media-player-icon" 
+                    id="toggleMediaPlayer" 
+                    aria-label="Toggle media player" 
+                    style="background: transparent; border: none; padding: 0; cursor: pointer;">
                 <i class="bi bi-headset"></i>
             </button>
 
@@ -522,11 +526,6 @@
     // Mobile sidenav toggle controls
     const sidenav = document.getElementById('mobile-nav');
     const sidenavTrigger = document.querySelector('.sidenav-trigger');
-    // Media player toggle controls
-    const toggleMediaPlayerButton = document.getElementById('toggleMediaPlayer');
-    const mediaPlayer = document.getElementById('mediaPlayer');
-    const largeScreenBreakpoint = 1024;
-
     function openSidenav() {
         if (sidenav) {
             sidenav.classList.add('is-open');
@@ -561,6 +560,11 @@
             closeSidenav();
         });
     });
+
+    // Media player toggle controls
+    const toggleMediaPlayerButton = document.getElementById('toggleMediaPlayer');
+    const mediaPlayer = document.getElementById('mediaPlayer');
+    const largeScreenBreakpoint = 1024;
 
     if (toggleMediaPlayerButton && mediaPlayer) {
         toggleMediaPlayerButton.addEventListener('click', function () {

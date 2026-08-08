@@ -125,13 +125,8 @@
                 padding: 0 12px;
             }
 
-            .nav-links, .spacer,
-            .media-player-icon #first, .media-player-icon #second  {
+            .nav-links, .spacer  {
                 display: none;
-            }
-
-            .media-player-icon {
-                margin-left: 0;
             }
         }
 
@@ -449,7 +444,54 @@
 
     <!-- ==============Custom JavaScript============ -->
     <script src="js/main.js"></script>
-<script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    // Keep desktop nav links marked active when clicked
+    $(document).ready(function() {
+        $('.nav-links a').on('click', function() {
+            $('.nav-links a').removeAttr('id');
+            $(this).attr('id', 'active');
+        });
+    });
+
+    // Mobile sidenav toggle controls
+    const sidenav = document.getElementById('mobile-nav');
+    const sidenavTrigger = document.querySelector('.sidenav-trigger');
+    function openSidenav() {
+        if (sidenav) {
+            sidenav.classList.add('is-open');
+        }
+    }
+
+    function closeSidenav() {
+        if (sidenav) {
+            sidenav.classList.remove('is-open');
+        }
+    }
+
+    function handleViewportChange() {
+        if (window.innerWidth > largeScreenBreakpoint) {
+            closeSidenav();
+        }
+    }
+
+    if (sidenavTrigger) {
+        sidenavTrigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            if (sidenav && sidenav.classList.contains('is-open')) {
+                closeSidenav();
+            } else {
+                openSidenav();
+            }
+        });
+    }
+
+    document.querySelectorAll('.sidenav-close, .sidenav a').forEach(function (element) {
+        element.addEventListener('click', function () {
+            closeSidenav();
+        });
+    });
+    
     // Initialize carousels
     document.addEventListener('DOMContentLoaded', function() {
 
