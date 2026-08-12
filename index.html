@@ -110,8 +110,8 @@
             display: none;
             width: min(150px, 84vw);
             max-width: 280px;
-            height: 400px;
-            max-height: calc(100vh - 250px);
+            height: 380px;
+            max-height: calc(100vh - 40px);
             margin: 0;
             border-radius: 12px 12px;
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
@@ -119,8 +119,7 @@
             background: white;
             color: #04500e;
             position: absolute;
-            top: 40px;
-            left: 69%;
+            left: 100%;
             z-index: 1000;
             overflow: hidden;
         }
@@ -189,9 +188,14 @@
             justify-content: center;
             background: rgb(255, 255, 255);
             align-items: center; 
-            top: 70px;
+        }
+
+        .carousel img {
             width: 100%;
-            max-width: 1200px;
+            height: auto;
+            max-height: 400px;
+            object-fit: 40%;
+            overflow: hidden;
         }
 
         /* Custom card styling */
@@ -291,7 +295,8 @@
                class="sidenav-trigger right green-text" 
                aria-label="Open navigation menu"
                style="margin: 0 93%;
-                     justify-content: center;">
+                     justify-content: center;"
+                class="hide-on-large-only">
                 <i class="bi bi-list"></i>
             </a>
         </nav>
@@ -303,13 +308,11 @@
         <section class="carousel carousel-slider" style="margin: 52px auto 0 auto;">
             <a class="carousel-item">
                 <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/welcome_jqqbqg.png" 
-                    alt="First Logo of B.I.A"
-                    height="400">        
+                    alt="First Logo of B.I.A">        
             </a>
             <a class="carousel-item">
                 <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/admission-opens_qdr5mc.png"
-                    alt="Admission image"
-                    height="400">
+                    alt="Admission image">
             </a>
         </section>
         <hr style="border-top: 5px solid #800020;">
@@ -349,8 +352,8 @@
         </div>
 
 
-        <aside>
-            <div class="sidenav" id="mobile-nav" style="top: 30px;">
+        <aside class="hide-on-large-only">
+            <div class="sidenav" id="mobile-nav" style="top: 6px;">
                 <div class="sidenav-header">
                     <a href="#" class="sidenav-close audio-sidenav-close" aria-label="Close navigation">
                         <i class="bi bi-x-lg"></i>
