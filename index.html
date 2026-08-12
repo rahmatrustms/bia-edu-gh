@@ -108,29 +108,25 @@
         /* ======== Mobile sidenav styles ====== */
         .sidenav {
             display: none;
-            width: min(220px, 84vw);
+            width: min(150px, 84vw);
             max-width: 280px;
-            height: auto;
-            max-height: calc(100vh - 66px);
+            height: 400px;
+            max-height: calc(100vh - 250px);
             margin: 0;
             border-radius: 12px 12px;
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
             padding: 0;
             background: white;
             color: #04500e;
-            position: fixed;
-            top: 58px;
-            right: -320px;
+            position: absolute;
+            top: 40px;
+            left: 69%;
             z-index: 1000;
             overflow: hidden;
-            transition: right 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
         }
 
         .sidenav.is-open {
             display: block;
-            right: 20px;
-            opacity: 1;
         }
 
         .sidenav h6 {
@@ -165,7 +161,7 @@
         .sidenav-header {
             padding: 0px 0px 0px 0px;
             border-bottom: 1px solid rgba(255,255,255,0.16);
-            margin-bottom: 8px;
+            margin-bottom: 0px;
             position: relative;
         }
 
@@ -174,7 +170,11 @@
             display: flex;
             align-items: center;
             border-radius: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            margin-top: 0;
             transition: all 0.25s ease;
+            background: whitesmoke;
+            white-space: nowrap;
         }
 
         .sidenav-overlay {
@@ -187,16 +187,18 @@
         .carousel {
             display: flex;
             justify-content: center;
-            background: rgba(4, 102, 15, 0.392);
+            background: rgb(255, 255, 255);
             align-items: center; 
             top: 70px;
-            width: 100%;}
+            width: 100%;
+            max-width: 1200px;
+        }
 
         /* Custom card styling */
         .card {
             border-radius: 1em !important;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
-            transition: all 0.5s ease-in-out !important;
+            transition: all 0.3s ease-in-out !important;
         }
 
         /* ======== Responsive behavior ====== */
@@ -278,7 +280,8 @@
                     </li>
 
                     <li><a href="#"
-                           class="green-text">Apply Online</a></li>
+                           class="green-text">Apply Online</a>
+                    </li>
                 </ul>
             </div>
 
@@ -297,18 +300,19 @@
     <main>
     <!--===BASE DESIGN===-->
         <!-- CAROUSEL -->
-        <section class="carousel carousel-slider" style="margin-top: 47px;">
+        <section class="carousel carousel-slider" style="margin: 52px auto 0 auto;">
             <a class="carousel-item">
                 <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/welcome_jqqbqg.png" 
                     alt="First Logo of B.I.A"
-                    height="150">        
+                    height="400">        
             </a>
             <a class="carousel-item">
                 <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/admission-opens_qdr5mc.png"
                     alt="Admission image"
-                    height="150">
+                    height="400">
             </a>
         </section>
+        <hr style="border-top: 5px solid #800020;">
 
         <br>
 
@@ -346,26 +350,42 @@
 
 
         <aside>
-            <div class="sidenav" id="mobile-nav">
+            <div class="sidenav" id="mobile-nav" style="top: 30px;">
                 <div class="sidenav-header">
                     <a href="#" class="sidenav-close audio-sidenav-close" aria-label="Close navigation">
                         <i class="bi bi-x-lg"></i>
                     </a>
                     <h6>Quick Access</h6>
-                    <hr style="border: none; border-top: 2px solid #22c90b; width: 100%;">
+                    <hr style="border: none; border-top: 2px solid #22c90b; width: 100%; margin-bottom: 0;">
                 </div>
 
                 <ul class="nav-item">
-                    <li>
-                        <a href="index.html" style="padding: 0 10px; line-height: 0;">
-                            <span>Home</span>
-                        </a>
+                    <li><a href="index.html"
+                           id="active"
+                           class="green-text">Home</a>
                     </li>
 
                     <li>
-                        <a href="pages/audios.html" style="padding: 0 10px; line-height: 0;">
-                            <span>Media Library</span>
-                        </a>
+                        <a href="#"
+                           class="green-text">Results</a>
+                    </li>
+
+                    <li>
+                        <a href="#"
+                           class="green-text">Exams</a>
+                    </li>
+
+                    <li>
+                        <a href="#"
+                           class="green-text">Gallery</a>
+                    </li>
+
+                    <li><a href="pages/audios.html" 
+                           class="green-text">Media Library</a>
+                    </li>
+
+                    <li><a href="#"
+                           class="green-text">Apply Online</a>
                     </li>
                 </ul>
             </div>
@@ -494,14 +514,6 @@
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    // Keep desktop nav links marked active when clicked
-    $(document).ready(function() {
-        $('.nav-links a').on('click', function() {
-            $('.nav-links a').removeAttr('id');
-            $(this).attr('id', 'active');
-        });
-    });
-
     // Mobile sidenav toggle controls
     const sidenav = document.getElementById('mobile-nav');
     const sidenavTrigger = document.querySelector('.sidenav-trigger');
@@ -534,8 +546,6 @@
         });
     }
 
-    window.addEventListener('resize', handleViewportChange);
-
     document.querySelectorAll('.sidenav-close, .sidenav a').forEach(function (element) {
         element.addEventListener('click', function () {
             closeSidenav();
@@ -553,10 +563,10 @@
             numVisible: 1
         });
 
-        // Automatically transition all carousels every 4 seconds
+        // Automatically transition all carousels every 10 seconds
         setInterval(() => {
             carouselInstances.forEach(carousel => carousel.next());
-        }, 4000);
+        }, 10000);
         
         // Enhanced hover effects for cards
         document.querySelectorAll('.card').forEach(card => {

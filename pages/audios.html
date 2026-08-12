@@ -55,6 +55,7 @@
         }
 
         .brandLogo {
+            margin: 0 30% 0 0;
             display: flex;
             align-items: center;
             flex-shrink: 1;
@@ -94,6 +95,7 @@
             margin: 0;
             padding: 0;
             list-style: none;
+            white-space: nowrap;
         }
 
 
@@ -105,15 +107,11 @@
         .media-player-icon {
             display: flex;
             align-items: center;
-            gap: 6px;
             color: #04500e;
             font-weight: 600;
             white-space: nowrap;
             flex-shrink: 0;
-            margin-left: 8px;
             background: transparent;
-            border: none;
-            padding: 0;
             cursor: pointer;
         }
 
@@ -156,7 +154,7 @@
             background: white;
             color: #04500e;
             position: absolute;
-            top: 58px;
+            top: 50px;
             left: 100%;
             z-index: 1000;
             overflow: hidden;
@@ -190,7 +188,7 @@
             font-size: 0.95rem;
         }
 
-        .audio-sidenav-close:hover {
+        .audio-sidenav-close, .sidenav li a:hover {
             background: rgba(4, 80, 14, 0.08);
             color: #04500e !important;
         }
@@ -207,7 +205,10 @@
             display: flex;
             align-items: center;
             border-radius: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
             transition: all 0.25s ease;
+            background: whitesmoke;
+            white-space: nowrap;
         }
 
         .sidenav-overlay {
@@ -335,8 +336,8 @@
             <button type="button" 
                     class="media-player-icon" 
                     id="toggleMediaPlayer" 
-                    aria-label="Toggle media player" 
-                    style="background: transparent; border: none; padding: 0; cursor: pointer;">
+                    aria-label="Toggle media player"
+                    style="padding: 0;">
                 <i class="bi bi-headset"></i>
             </button>
 
@@ -359,12 +360,11 @@
                 margin-left: auto; 
                 margin-right: auto;">
 
-            <a href="#"
-               target="content"
+            <a target="content"
                id="backToMediaLibrary"
                class="btn-small left back-nav"
                aria-label="Back to media library">
-              <i class="bi bi-arrow-left" style="font-size: 24px;"></i>
+              <i class="bi bi-arrow-left" style="font-size: 18px;"></i>
             </a>
 
             <h1 class="flow-text center font-bold" 
@@ -570,9 +570,6 @@
             mediaPlayer.style.display = isHidden ? 'flex' : 'none';
         });
     }
-
-    window.addEventListener('resize', handleViewportChange);
-    handleViewportChange();
 
     const iframe = document.querySelector('iframe[name="content"]');
     const backButton = document.getElementById('backToMediaLibrary');

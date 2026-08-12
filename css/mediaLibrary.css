@@ -69,19 +69,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 0 0 0 0;
-    border-radius: 20px;
-    height: 40px;
-    padding: 8px;
+    margin: 0 0 0 50%;
+    border-radius: 50%;
+    height: 29px;
+    width: 29px;
+    padding: 0px;
 }
 
 .media-player-icon i {
+    margin: 0 0 0 10%;
     font-size: 1.5em;
-    margin: 0 40px 0 50%;
 }
 
 .media-player-icon:hover {
     background: whitesmoke;
+    border-radius: 50%;
+    padding: 0;
     border-bottom: 3px solid #800020;
 }
 /* ============================================ */
