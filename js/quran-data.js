@@ -50,7 +50,7 @@ const quranAudios = [
     {
         title: "(014)_Ibrahim",
         duration: "00:00",
-        src: "https://res.cloudinary.com/rahmatrust-multi-services/video/upload/fl_attachment/v1777927131/014__Ibrahim_jb1hc8.mp3",
+        src: "https://res.cloudinary.com/rahmatrust-m-s/video/upload/fl_attachment/014__Ibrahim_l093am.mp3",
         artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
         artist: "Sanauallah Ishaq Frimpong"
     },
@@ -104,6 +104,14 @@ const quranAudios = [
     },
 
     {
+        title: "(036)_Yaaseen_13-30",
+        duration: "00:00",
+        src: "https://res.cloudinary.com/rahmatrust-m-s/video/upload/036__Yaaseen_13-30_w5516x.mp3",
+        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
+        artist: "Sanauallah Ishaq Frimpong"
+    },
+
+    {
         title: "(061)_As-Saff",
         duration: "00:00",
         src: "https://res.cloudinary.com/rahmatrust-multi-services/video/upload/fl_attachment/v1777928112/061__As-Saff_xmek1w.mp3",
@@ -148,6 +156,8 @@ const quranAudios = [
         title: "(066)_At-Tahriim",
         duration: "00:00",
         src: ""
+        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
+        artist: "Sanauallah Ishaq Frimpong"
     },
     */
 
