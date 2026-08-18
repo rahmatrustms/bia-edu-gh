@@ -355,10 +355,7 @@
                     aria-label="Education versus School video">
                     <source
                         src="https://res.cloudinary.com/rahmatrust-m-s/video/upload/Education_vs_School_cgbodb.mp4"
-                        type="video/mp4"
-                        aria-label="Education versus School video"
-                        autoPlay
-                        loop>
+                        type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </a>
@@ -613,7 +610,6 @@
 
         // Initialize carousels visibility and indicators
         const carouselElems = document.querySelectorAll('.carousel');
-        let carouselAutoAdvanceTimer = null;
 
         function pauseCarouselVideos() {
             document.querySelectorAll('.carousel video').forEach(video => {
@@ -621,53 +617,33 @@
             });
         }
 
-        function startCarouselAutoAdvance(carousel) {
-            clearInterval(carouselAutoAdvanceTimer);
-
-            carouselAutoAdvanceTimer = setInterval(() => {
-                const activeSlide = carousel.el.querySelector('.carousel-item.active');
-
-                // Keep the video slide on screen until the visitor chooses
-                // to leave it, instead of cutting it off after 10 seconds.
-                if (activeSlide && activeSlide.querySelector('video')) {
-                    clearInterval(carouselAutoAdvanceTimer);
-                    return;
-                }
-
-                carousel.next();
-            }, 10000);
-        }
-
         const carouselInstances = M.Carousel.init(carouselElems, {
             fullWidth: true,
             indicators: true,
             numVisible: 1,
+
+            // Pause any video whenever the carousel changes slides.
             onCycleTo: function(el) {
-                clearInterval(carouselAutoAdvanceTimer);
                 pauseCarouselVideos();
-
-                const activeVideo = el.querySelector('video');
-
-                if (activeVideo) {
-                    // Video slides do not auto-advance.
-                    clearInterval(carouselAutoAdvanceTimer);
-                } else {
-                    startCarouselAutoAdvance(this);
-                }
             }
         });
 
-        // Start automatic movement for the initial image slide.
+        // Automatically move to the next slide every 10 seconds.
+        // This includes the video slide, so the carousel continues:
+        // image -> image -> video -> image -> ...
         carouselInstances.forEach(carousel => {
-            startCarouselAutoAdvance(carousel);
+            setInterval(() => {
+                pauseCarouselVideos();
+                carousel.next();
+            }, 10000);
         });
 
-        // Pause video whenever the visitor manually changes slides.
+        // Pause video immediately when the visitor manually changes slides.
         carouselElems.forEach(carousel => {
             carousel.addEventListener('touchstart', pauseCarouselVideos, { passive: true });
             carousel.addEventListener('mousedown', pauseCarouselVideos);
         });
-        
+
         // Enhanced hover effects for cards
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mouseenter', function() {
