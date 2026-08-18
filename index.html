@@ -196,6 +196,131 @@
             max-height: 400px;
             object-fit: 40%;
             overflow: hidden;
+            display: block;
+        }
+
+        /* ======== Carousel video ======== */
+        .carousel-video {
+            width: 100%;
+            height: 400px;
+            display: block;
+            object-fit: contain;
+            background: #071b0d;
+        }
+
+        /* ======== Professional carousel/card divider ======== */
+        .carousel-divider {
+            position: relative;
+            width: 100%;
+            height: 68px;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #fffdf7 38%,
+                    #f8f1dc 100%
+                );
+        }
+
+        .carousel-divider::before,
+        .carousel-divider::after {
+            content: "";
+            position: absolute;
+            left: -2%;
+            width: 104%;
+            height: 18px;
+            transform: rotate(-1.8deg);
+        }
+
+        .carousel-divider::before {
+            top: 17px;
+            background: linear-gradient(
+                90deg,
+                #04500e 0%,
+                #04500e 24%,
+                #800020 39%,
+                #c99a1b 50%,
+                #800020 61%,
+                #04500e 76%,
+                #04500e 100%
+            );
+            box-shadow: 0 2px 0 rgba(255,255,255,0.9);
+        }
+
+        .carousel-divider::after {
+            top: 34px;
+            height: 5px;
+            transform: rotate(1.8deg);
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                #c99a1b 20%,
+                #800020 50%,
+                #c99a1b 80%,
+                transparent 100%
+            );
+        }
+
+        .divider-emblem {
+            position: relative;
+            z-index: 3;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #fffdf7;
+            border: 3px solid #c99a1b;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+            color: #800020;
+            font-size: 1.35rem;
+        }
+
+        .divider-emblem::before,
+        .divider-emblem::after {
+            content: "✦";
+            position: absolute;
+            color: #c99a1b;
+            font-size: 0.85rem;
+        }
+
+        .divider-emblem::before {
+            left: -28px;
+        }
+
+        .divider-emblem::after {
+            right: -28px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-video {
+                height: auto;
+                max-height: 400px;
+            }
+
+            .carousel-divider {
+                height: 54px;
+            }
+
+            .divider-emblem {
+                width: 40px;
+                height: 40px;
+                font-size: 1.05rem;
+            }
+
+            .divider-emblem::before {
+                left: -22px;
+            }
+
+            .divider-emblem::after {
+                right: -22px;
+            }
         }
 
         /* Custom card styling */
@@ -246,7 +371,7 @@
             <!----------- Brand Logo ----------->
             <div class="brandLogo">
                 <a href="index.html">
-                    <img src="https://res.cloudinary.com/rahmatrust-m-s/video/upload/Education_vs_School_cgbodb.mp4" 
+                    <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/bia-logo_hcdlmj.png" 
                          alt="Logo"
                          width="50"
                          height="50">
@@ -306,16 +431,44 @@
     <!--===BASE DESIGN===-->
         <!-- CAROUSEL -->
         <section class="carousel carousel-slider" style="margin: 52px auto 0 auto;">
+
+            <!-- Welcome slide -->
             <a class="carousel-item">
-                <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/welcome_ya2767.webp" 
-                    alt="Welcome message">        
+                <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/welcome_ya2767.webp"
+                    alt="Welcome message">
             </a>
+
+            <!-- Admission slide -->
+                <a class="carousel-item">
+                    <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/admission-open_v8icqq.webp"
+                        alt="2026/2027 Admission Open">
+                </a>
+
+            <!-- Education vs School video slide -->
             <a class="carousel-item">
-                <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/admission-open_v8icqq.webp"
-                    alt="2026/2027 Admission Open">
+                <video
+                    class="carousel-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    aria-label="Education versus School video">
+                    <source
+                        src="https://res.cloudinary.com/rahmatrust-m-s/video/upload/Education_vs_School_cgbodb.mp4"
+                        type="video/mp4"
+                        aria-label="Education versus School video"
+                        autoPlay
+                        loop>
+                    Your browser does not support the video tag.
+                </video>
             </a>
+
         </section>
-        <hr style="border-top: 5px solid #800020;">
+
+        <!-- Professional branded divider -->
+        <div class="carousel-divider" aria-hidden="true">
+            <img src="https://res.cloudinary.com/rahmatrust-m-s/image/upload/carousel-divider_imk76u.webp" 
+            alt="Professional branded divider">
+        </div>
 
         <br>
 
@@ -560,16 +713,60 @@
 
         // Initialize carousels visibility and indicators
         const carouselElems = document.querySelectorAll('.carousel');
+        let carouselAutoAdvanceTimer = null;
+
+        function pauseCarouselVideos() {
+            document.querySelectorAll('.carousel video').forEach(video => {
+                video.pause();
+            });
+        }
+
+        function startCarouselAutoAdvance(carousel) {
+            clearInterval(carouselAutoAdvanceTimer);
+
+            carouselAutoAdvanceTimer = setInterval(() => {
+                const activeSlide = carousel.el.querySelector('.carousel-item.active');
+
+                // Keep the video slide on screen until the visitor chooses
+                // to leave it, instead of cutting it off after 10 seconds.
+                if (activeSlide && activeSlide.querySelector('video')) {
+                    clearInterval(carouselAutoAdvanceTimer);
+                    return;
+                }
+
+                carousel.next();
+            }, 10000);
+        }
+
         const carouselInstances = M.Carousel.init(carouselElems, {
             fullWidth: true,
             indicators: true,
-            numVisible: 1
+            numVisible: 1,
+            onCycleTo: function(el) {
+                clearInterval(carouselAutoAdvanceTimer);
+                pauseCarouselVideos();
+
+                const activeVideo = el.querySelector('video');
+
+                if (activeVideo) {
+                    // Video slides do not auto-advance.
+                    clearInterval(carouselAutoAdvanceTimer);
+                } else {
+                    startCarouselAutoAdvance(this);
+                }
+            }
         });
 
-        // Automatically transition all carousels every 10 seconds
-        setInterval(() => {
-            carouselInstances.forEach(carousel => carousel.next());
-        }, 10000);
+        // Start automatic movement for the initial image slide.
+        carouselInstances.forEach(carousel => {
+            startCarouselAutoAdvance(carousel);
+        });
+
+        // Pause video whenever the visitor manually changes slides.
+        carouselElems.forEach(carousel => {
+            carousel.addEventListener('touchstart', pauseCarouselVideos, { passive: true });
+            carousel.addEventListener('mousedown', pauseCarouselVideos);
+        });
         
         // Enhanced hover effects for cards
         document.querySelectorAll('.card').forEach(card => {
