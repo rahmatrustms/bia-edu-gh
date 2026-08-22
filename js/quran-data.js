@@ -196,7 +196,7 @@ const quranAudios = [
     {
         title: "(094)_Ash-Sharh",
         duration: "00:00",
-        src: "https://res.cloudinary.com/rahmatrust-m-s/video/upload/094__Ash-Sharh_aigvja.mp3",
+        src: "https://res.cloudinary.com/rahmatrust-m-s/video/upload/094__Ash-Shrah_ojucdo.mp3",
         artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
         artist: "Sanauallah Ishaq Frimpong"
     },
