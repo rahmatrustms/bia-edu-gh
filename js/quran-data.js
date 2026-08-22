@@ -155,91 +155,11 @@ const quranAudios = [
     {
         title: "(066)_At-Tahriim",
         duration: "00:00",
-        src: "",
+        src: ""
         artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
         artist: "Sanauallah Ishaq Frimpong"
     },
     */
-
-    {
-        title: "(090)_Al-Balad",
-        duration: "00:00",
-        src: "https://res.cloudinary.com/rahmatrust-m-s/video/upload/090__Al-Balad_bakn9w.mp3",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(091)_Ash-Shams",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(092)_Al-Lail",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(093)_Ad-Duhaa",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(094)_Ash-Sharh",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(095)_Al-Teen",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(096)_Al-'Alaq",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(097)_Al-Qadr",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(098)_Al-Bayyinah",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
-
-    {
-        title: "(099)_Az-Zalzalah",
-        duration: "00:00",
-        src: "",
-        artwork: "https://res.cloudinary.com/rahmatrust-m-s/image/upload/w_1000/f_auto/q_auto/sanauallah_ronio3.jpg",
-        artist: "Sanauallah Ishaq Frimpong"
-    },
 
     {
         title: "(100)_Al-Aadiyaat",
